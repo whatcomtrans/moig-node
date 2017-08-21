@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mitel.com/oig/da" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/da">
+    <xs:simpleType name="searchOperator">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SO_CONTAINS"/>
+            <xs:enumeration value="SO_EQUAL_TO"/>
+            <xs:enumeration value="SO_GREATER"/>
+            <xs:enumeration value="SO_GREATER_EQUAL"/>
+            <xs:enumeration value="SO_LESS"/>
+            <xs:enumeration value="SO_LESS_EQUAL"/>
+            <xs:enumeration value="SO_NOT_EQUAL_TO"/>
+            <xs:enumeration value="SO_STARTS_WITH"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="fieldType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BOOLEAN_FIELD_TYPE"/>
+            <xs:enumeration value="ENUM_FIELD_TYPE"/>
+            <xs:enumeration value="INTEGER_FIELD_TYPE"/>
+            <xs:enumeration value="STRING_FIELD_TYPE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="deiLevel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DEI_LEVEL_COMMON"/>
+            <xs:enumeration value="DEI_LEVEL_ESMAPP"/>
+            <xs:enumeration value="DEI_LEVEL_GDM"/>
+            <xs:enumeration value="DEI_LEVEL_MASAPP"/>
+            <xs:enumeration value="DEI_LEVEL_SDSCC"/>
+            <xs:enumeration value="UDM_INVALID_LEVEL"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="notificationOperation">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OP_INSERT"/>
+            <xs:enumeration value="OP_UPDATE"/>
+            <xs:enumeration value="OP_DELTE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="getNotificationResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="originalTuple" type="tns:tuple"/>
+            <xs:element minOccurs="0" name="updatedTuple" type="tns:tuple"/>
+            <xs:element minOccurs="0" name="operationPerformed" type="tns:notificationOperation"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="insertTupleRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="newTuple" type="tns:tuple"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+        <xs:attribute name="distributionOnly" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="result">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="errorCode" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="searchCondition">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="searchPredicate" type="tns:searchPredicate"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="viewId">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="viewName" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="dbId" type="xs:int" use="required"/>
+        <xs:attribute name="viewId" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="updateTupleResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="retTuple" type="tns:tuple"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="searchNextNTuplesRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="searchCondition" type="tns:searchCondition"/>
+            <xs:element minOccurs="0" name="currentTuple" type="tns:tuple"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+        <xs:attribute name="n" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:element name="searchFirstNTuplesRequest" type="tns:searchFirstNTuplesRequest"/>
+    <xs:complexType name="tuple">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="field" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="numberOfFields" type="xs:int" use="required"/>
+        <xs:attribute name="viewId" type="xs:int" use="required"/>
+        <xs:attribute name="isShared" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="searchFirstNTuplesRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="searchCondition" type="tns:searchCondition"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+        <xs:attribute name="n" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="tuples">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="tuple" type="tns:tuple"/>
+        </xs:sequence>
+        <xs:attribute name="numberOfTuples" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:element name="notificationRequest" type="tns:notificationRequest"/>
+    <xs:element name="notificationReport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="originalTuple" type="tns:tuple"/>
+                <xs:element minOccurs="0" name="updatedTuple" type="tns:tuple"/>
+                <xs:element minOccurs="0" name="operationPerformed" type="tns:notificationOperation"/>
+            </xs:sequence>
+            <xs:attribute name="deiId" type="xs:int" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="searchResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="tuples" type="tns:tuples"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deleteTupleRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="tuple" type="tns:tuple"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+        <xs:attribute name="distributionOnly" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deiDescriptor">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="field" type="tns:fieldDescriptor"/>
+            <xs:element minOccurs="0" name="viewId" type="tns:viewId"/>
+            <xs:element minOccurs="0" name="dbTableName" type="xs:string"/>
+            <xs:element minOccurs="0" name="deiLevel" type="tns:deiLevel"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="keyField" type="xs:int"/>
+            <xs:element minOccurs="0" name="introducedInVersion" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+        <xs:attribute name="numberOfFields" type="xs:int" use="required"/>
+        <xs:attribute name="dnFieldId" type="xs:int" use="required"/>
+        <xs:attribute name="deiVersion" type="xs:int" use="required"/>
+        <xs:attribute name="allowDeletes" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="fieldDescriptor">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+            <xs:element minOccurs="0" name="fieldValidationType" type="xs:string"/>
+            <xs:element minOccurs="0" name="fieldType" type="tns:fieldType"/>
+        </xs:sequence>
+        <xs:attribute name="fieldId" type="xs:int" use="required"/>
+        <xs:attribute name="fieldIsDeprecated" type="xs:boolean" use="required"/>
+        <xs:attribute name="fieldIsKey" type="xs:boolean" use="required"/>
+        <xs:attribute name="fieldIsNonWritableKeyForChange" type="xs:boolean" use="required"/>
+        <xs:attribute name="fieldIsMandatory" type="xs:boolean" use="required"/>
+        <xs:attribute name="fieldSize" type="xs:int" use="required"/>
+        <xs:attribute name="maxValue" type="xs:long" use="required"/>
+        <xs:attribute name="minValue" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:element name="deleteTupleRequest" type="tns:deleteTupleRequest"/>
+    <xs:complexType name="notificationRequest">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="deiId" type="xs:int"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="numberOfDeis" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:element name="searchNextNTuplesRequest" type="tns:searchNextNTuplesRequest"/>
+    <xs:complexType name="updateTupleRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="oldTuple" type="tns:tuple"/>
+            <xs:element minOccurs="0" name="newTuple" type="tns:tuple"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="deiId" type="xs:int" use="required"/>
+        <xs:attribute name="distributionOnly" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="searchPredicate">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="value" type="xs:string"/>
+            <xs:element minOccurs="0" name="searchOperator" type="tns:searchOperator"/>
+        </xs:sequence>
+        <xs:attribute name="fieldId" type="xs:int" use="required"/>
+        <xs:attribute name="caseInsensitive" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:element name="updateTupleRequest" type="tns:updateTupleRequest"/>
+    <xs:complexType name="getDeiMetaDataResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="deiMetadata" type="tns:deiMetaData"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deiMetaData">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="deiDesctiptor" type="tns:deiDescriptor"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

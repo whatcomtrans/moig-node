@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mitel.com/oig/session/SessionService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://mitel.com/oig/session/SessionService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/session/SessionService" xmlns:ns1="http://mitel.com/oig/session" xmlns:tns="http://mitel.com/oig/session/SessionService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://mitel.com/oig/session" schemaLocation="session.xsd"/>
+      <xs:element name="login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="req" type="ns1:loginRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:loginResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginEx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="req" type="ns1:loginExRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginExResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:loginExResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginApp">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="req" type="ns1:loginAppReq"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginAppResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:loginAppResp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authenticate">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="req" type="ns1:authenticateSessionRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authenticateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:authenticateSessionResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="serviceVersions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="serviceVersionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:versionResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resetSessionTimer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resetSessionTimerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:resetSessionTimerResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logout">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoutResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:logoutResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerHAClientCallback">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="callbackUri" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerHAClientCallbackResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="request" type="ns1:loginUser"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:loginUserResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateToken">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="token" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateTokenResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:validateTokenResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="logoutResponseMessage">
+    <wsdl:part name="part" element="tns:logoutResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginExResponseMessage">
+    <wsdl:part name="part" element="tns:loginExResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateResponseMessage">
+    <wsdl:part name="part" element="tns:authenticateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginResponseMessage">
+    <wsdl:part name="part" element="tns:loginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateMessage">
+    <wsdl:part name="part" element="tns:authenticate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateTokenResponseMessage">
+    <wsdl:part name="part" element="tns:validateTokenResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginUserMessage">
+    <wsdl:part name="part" element="tns:loginUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="serviceVersionsMessage">
+    <wsdl:part name="part" element="tns:serviceVersions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginAppMessage">
+    <wsdl:part name="part" element="tns:loginApp">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resetSessionTimerMessage">
+    <wsdl:part name="part" element="tns:resetSessionTimer">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="serviceVersionsResponseMessage">
+    <wsdl:part name="part" element="tns:serviceVersionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginExMessage">
+    <wsdl:part name="part" element="tns:loginEx">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateTokenMessage">
+    <wsdl:part name="part" element="tns:validateToken">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginUserResponseMessage">
+    <wsdl:part name="part" element="tns:loginUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerHAClientCallbackResponseMessage">
+    <wsdl:part name="part" element="tns:registerHAClientCallbackResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerHAClientCallbackMessage">
+    <wsdl:part name="part" element="tns:registerHAClientCallback">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutMessage">
+    <wsdl:part name="part" element="tns:logout">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginMessage">
+    <wsdl:part name="part" element="tns:login">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginAppResponseMessage">
+    <wsdl:part name="part" element="tns:loginAppResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resetSessionTimerResponseMessage">
+    <wsdl:part name="part" element="tns:resetSessionTimerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SessionServicePortType">
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginEx">
+      <wsdl:input message="tns:loginExMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginExResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginApp">
+      <wsdl:input message="tns:loginAppMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginAppResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <wsdl:input message="tns:authenticateMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:authenticateResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="serviceVersions">
+      <wsdl:input message="tns:serviceVersionsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:serviceVersionsResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetSessionTimer">
+      <wsdl:input message="tns:resetSessionTimerMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:resetSessionTimerResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input message="tns:logoutMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:logoutResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerHAClientCallback">
+      <wsdl:input message="tns:registerHAClientCallbackMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:registerHAClientCallbackResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <wsdl:input message="tns:loginUserMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginUserResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateToken">
+      <wsdl:input message="tns:validateTokenMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:validateTokenResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SessionServiceBinding" type="tns:SessionServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="urn:login"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginEx">
+      <soap:operation soapAction="urn:loginEx"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginApp">
+      <soap:operation soapAction="urn:loginApp"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="urn:authenticate"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="serviceVersions">
+      <soap:operation soapAction="urn:serviceVersions"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetSessionTimer">
+      <soap:operation soapAction="urn:resetSessionTimer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="urn:logout"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerHAClientCallback">
+      <soap:operation soapAction="urn:registerHAClientCallback"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <soap:operation soapAction="urn:loginUser"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateToken">
+      <soap:operation soapAction="urn:validateToken"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SessionService">
+    <wsdl:port name="SessionServicePort" binding="tns:SessionServiceBinding">
+      <soap:address location="http://localhost:8080/axis2/services/SessionService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

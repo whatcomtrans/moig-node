@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://mitel.com/oig/cc" xmlns:tns="http://mitel.com/oig/cc/standard" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/cc/standard">
+    <xs:import namespace="http://mitel.com/oig/cc" schemaLocation="cc.xsd"/>
+    <xs:simpleType name="networkElementType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MI_VB"/>
+            <xs:enumeration value="MI_400"/>
+            <xs:enumeration value="MI_CC"/>
+            <xs:enumeration value="MX_ONE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="resilientStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="primaryConnectionState" type="ns1:connectionState"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryConnectionState" type="ns1:connectionState"/>
+            <xs:element minOccurs="0" name="callStatePrimary" type="ns1:callState"/>
+            <xs:element minOccurs="0" name="callStateSecondary" type="ns1:callState"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="activeIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:element name="setAccountCodeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountCode" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="sessionId" type="xs:long" use="required"/>
+            <xs:attribute name="objectId" type="xs:long" use="required"/>
+            <xs:attribute name="localCallId" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="setCFRequest">
+        <xs:sequence>
+            <xs:element name="dn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+        <xs:attribute name="cfOn" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="incomingPhoneNumberResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="incomingNumber" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="hotDeskUserLoginResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="userDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="hotDeskDeviceObjectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:element name="getIcpIdRequest" type="tns:getIcpIdRequest"/>
+    <xs:element name="loginHotDeskUserRequest" type="tns:loginHotDeskUserRequest"/>
+    <xs:element name="getDeviceMembersRequest" type="tns:getDeviceMembersRequest"/>
+    <xs:complexType name="memberConfig">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="primeDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="buttonNum" type="xs:int" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="monitorResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:element name="standardCCService">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="dialNumberResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="dialableNumber" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:element name="pickupCallRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ringDn" type="xs:string"/>
+                <xs:element name="pickupDn" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="sessionId" type="xs:long" use="required"/>
+            <xs:attribute name="objectId" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getLineAppearanceIdRequest" type="tns:getLineAppearanceIdRequest"/>
+    <xs:complexType name="getIcpIdRequest">
+        <xs:sequence>
+            <xs:element name="icpIpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deviceMembersResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="member" type="tns:memberConfig"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="getLineAppearanceIdRequest">
+        <xs:sequence>
+            <xs:element name="primeDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+        <xs:attribute name="buttonNum" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:element name="makeCallRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="number" type="xs:string"/>
+                <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="sessionId" type="xs:long" use="required"/>
+            <xs:attribute name="objectId" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sendCallMeBackMsgNoCallRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="deviceDn" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="sessionId" type="xs:long" use="required"/>
+            <xs:attribute name="objIdOfDeviceToMsg" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="getPhoneNumberIdRequest">
+        <xs:sequence>
+            <xs:element name="primeDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deviceConfigResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="line" type="tns:lineConfig"/>
+            <xs:element minOccurs="0" name="primaryIcp" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcp" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:element name="getPhoneNumberIdRequest" type="tns:getPhoneNumberIdRequest"/>
+    <xs:complexType name="deviceConfigExResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="line" type="tns:lineConfig"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="getDeviceMembersRequest">
+        <xs:sequence>
+            <xs:element name="primeDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="lineConfig">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="extNumber" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+        <xs:attribute name="buttonNumber" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="loginExtHotDeskUserRequest">
+        <xs:sequence>
+            <xs:element name="pin" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:element name="outPulseDigitsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dtmfDigits" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="sessionId" type="xs:long" use="required"/>
+            <xs:attribute name="objectId" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="redirectCallRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="redirectDn" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="session" type="xs:long" use="required"/>
+            <xs:attribute name="objectId" type="xs:long" use="required"/>
+            <xs:attribute name="localCallId" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="setCFRequest" type="tns:setCFRequest"/>
+    <xs:complexType name="getDeviceConfigurationRequest">
+        <xs:sequence>
+            <xs:element name="primeDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="icpConfigResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="maxExtLength" type="xs:string"/>
+            <xs:element minOccurs="0" name="trunkPrefix" type="xs:string"/>
+            <xs:element minOccurs="0" name="longDistancePrefix" type="xs:string"/>
+            <xs:element minOccurs="0" name="internationalPrefix" type="xs:string"/>
+            <xs:element minOccurs="0" name="localAreaCodes" type="xs:string"/>
+            <xs:element minOccurs="0" name="outsidePrefix" type="xs:string"/>
+            <xs:element minOccurs="0" name="localCountryCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="neType" type="tns:networkElementType"/>
+            <xs:element minOccurs="0" name="ipAddr" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:element name="setPRGPresenceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PRGDn" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="sessionId" type="xs:long" use="required"/>
+            <xs:attribute name="objectId" type="xs:long" use="required"/>
+            <xs:attribute name="presenceValue" type="xs:boolean" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getDeviceConfigurationRequest" type="tns:getDeviceConfigurationRequest"/>
+    <xs:element name="loginExtHotDeskUserRequest" type="tns:loginExtHotDeskUserRequest"/>
+    <xs:complexType name="hotDeskUserLoginDeviceResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="hotDeskDeviceDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="hotDeskUserObjectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="loginHotDeskUserRequest">
+        <xs:sequence>
+            <xs:element name="pin" type="xs:string"/>
+            <xs:element name="hotDeskUserDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+</xs:schema>

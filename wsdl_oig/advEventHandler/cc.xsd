@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mitel.com/oig/cc" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/cc">
+    <xs:simpleType name="attributeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STRING"/>
+            <xs:enumeration value="INTEGER"/>
+            <xs:enumeration value="LONG_INTEGER"/>
+            <xs:enumeration value="BOOLEAN"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="featuresAllowed">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NOT_SUPPORTED"/>
+            <xs:enumeration value="ANSWER_CALL"/>
+            <xs:enumeration value="REDIRECT_CALL"/>
+            <xs:enumeration value="CAMPON_CALL"/>
+            <xs:enumeration value="SET_CALL_ME_BACK"/>
+            <xs:enumeration value="INTRUDE_CALL"/>
+            <xs:enumeration value="ALTERNATE_CALL"/>
+            <xs:enumeration value="TRADE_CALL"/>
+            <xs:enumeration value="CONFERENCE_CALL"/>
+            <xs:enumeration value="SPLIT_CONFERENCE_CALL"/>
+            <xs:enumeration value="CONSULTATION_CALL"/>
+            <xs:enumeration value="CANCEL_CONSULTATION_CALL"/>
+            <xs:enumeration value="TRANSFER_CALL"/>
+            <xs:enumeration value="SEND_CALLBACK_MESSAGE"/>
+            <xs:enumeration value="SET_ACCOUNT_CODE"/>
+            <xs:enumeration value="NEW_CALL"/>
+            <xs:enumeration value="CLEAR_CALL"/>
+            <xs:enumeration value="OUT_PULSE_DIGITS"/>
+            <xs:enumeration value="HOLD_CALL"/>
+            <xs:enumeration value="RETRIEVE_CALL"/>
+            <xs:enumeration value="LISTEN_CALL"/>
+            <xs:enumeration value="ASSIGN_CALLER_ID"/>
+            <xs:enumeration value="ALTER_WORK_TIMER"/>
+            <xs:enumeration value="TAP_CALL"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

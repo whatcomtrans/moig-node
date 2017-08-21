@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://mitel.com/oig/cc/advanced" xmlns:tns="http://mitel.com/oig/cc" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/cc">
+    <xs:import namespace="http://mitel.com/oig/cc/advanced" schemaLocation="advanced.xsd"/>
+    <xs:simpleType name="accountCodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="VERIFIED_ACCOUNT_CODE"/>
+            <xs:enumeration value="UNVERIFIED_ACCOUNT_CODE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="deviceName">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CALLING_DEVICE"/>
+            <xs:enumeration value="CALLING_DEVICE_NETWORK_EXT"/>
+            <xs:enumeration value="ORIGINAL_DESTINATION_DEVICE"/>
+            <xs:enumeration value="GROUP_DEVICE"/>
+            <xs:enumeration value="CALLED_DEVICE"/>
+            <xs:enumeration value="CONTROLLER_DEVICE"/>
+            <xs:enumeration value="CONNECTED_DEVICE"/>
+            <xs:enumeration value="PICKUP_DEVICE"/>
+            <xs:enumeration value="SPLITTING_DEVICE"/>
+            <xs:enumeration value="TRANSFER_CONTROLLER_DEVICE"/>
+            <xs:enumeration value="TRANSFERRED_DEVICE"/>
+            <xs:enumeration value="NEW_DESTINATION_DEVICE"/>
+            <xs:enumeration value="DROPPED_DEVICE"/>
+            <xs:enumeration value="USING_DEVICE"/>
+            <xs:enumeration value="HOLDING_DEVICE"/>
+            <xs:enumeration value="WAITING_DEVICE"/>
+            <xs:enumeration value="ACD_CALLER_DEVICE"/>
+            <xs:enumeration value="ACD_AGENT_DEVICE"/>
+            <xs:enumeration value="ACD_FORWARDING_DEVICE"/>
+            <xs:enumeration value="ACD_UNAVAILABLE_ANSWER_POINT_DEVICE"/>
+            <xs:enumeration value="ACD_PATH_EXIT_DEVICE"/>
+            <xs:enumeration value="ACD_INTERFLOW_DEVICE"/>
+            <xs:enumeration value="ACD_AGENT_GROUP_DEVICE"/>
+            <xs:enumeration value="ACD_RAD_DEVICE"/>
+            <xs:enumeration value="ACD_REMOTE_PATH_DEVICE"/>
+            <xs:enumeration value="GROUP_MEMBER_DEVICE"/>
+            <xs:enumeration value="GROUP_OVERFLOW_DEVICE"/>
+            <xs:enumeration value="GROUP_WAITING_DEVICE"/>
+            <xs:enumeration value="ROUTING_DEVICE"/>
+            <xs:enumeration value="TRANSFERRER_DEVICE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="systemEventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ICP_COMMUNICATION_EVENT"/>
+            <xs:enumeration value="OIG_SHUTDOWN"/>
+            <xs:enumeration value="HA_ACTIVITY_SWITCH"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eventCauseType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="ACCOUNT_CODE_SET"/>
+            <xs:enumeration value="ACD_AGENT_TIMEOUT"/>
+            <xs:enumeration value="ACD_CALL_QUEUED"/>
+            <xs:enumeration value="ACD_CALL_DELIVERED"/>
+            <xs:enumeration value="ACD_CALL_ANSWERED"/>
+            <xs:enumeration value="ACD_CALL_CLEARED"/>
+            <xs:enumeration value="ACD_CALL_OVERFLOWED"/>
+            <xs:enumeration value="ACD_CALL_ABANDONED"/>
+            <xs:enumeration value="ACD_CALL_CLEAR_INVOKED"/>
+            <xs:enumeration value="ACD_CALL_QUEUED_FAILED"/>
+            <xs:enumeration value="ACD_CALL_QUEUED_OVERFLOWED"/>
+            <xs:enumeration value="ACD_CALL_REDIRECTED"/>
+            <xs:enumeration value="ACD_CALL_RECEIVED"/>
+            <xs:enumeration value="ACD_REMOTE_CALL_QUEUED"/>
+            <xs:enumeration value="ACD_REMOTE_CALL_DEQUEUED"/>
+            <xs:enumeration value="ACD_REMOTE_CALL_DISTRIBUTED"/>
+            <xs:enumeration value="ACD_HELP_CALL"/>
+            <xs:enumeration value="ACD_INTERFLOWED_DISCONNECTED"/>
+            <xs:enumeration value="ACD_INTERFLOWED_REROUTED"/>
+            <xs:enumeration value="ACD_RAD_STARTED"/>
+            <xs:enumeration value="ACD_REQUEST"/>
+            <xs:enumeration value="ACD_REQUEST_DISCONNECTED"/>
+            <xs:enumeration value="ACD_REQUEST_REROUTED"/>
+            <xs:enumeration value="ACD_REQUEUE_REQUEST"/>
+            <xs:enumeration value="ACD_REQUEUE_REQUEST_DISCONNECTED"/>
+            <xs:enumeration value="ACD_REQUEUE_REQUEST_REROUTED"/>
+            <xs:enumeration value="ACD_SILENT_MONITOR_ESTABLISHED"/>
+            <xs:enumeration value="ACD_SILENT_MONITOR_DROPPED"/>
+            <xs:enumeration value="ACD_SILENT_MONITOR"/>
+            <xs:enumeration value="ACD_SILENT_MONITOR_INVOKED"/>
+            <xs:enumeration value="ALTERNATE_CALL_INVOKED"/>
+            <xs:enumeration value="ANSWERED"/>
+            <xs:enumeration value="ANSWERED_INVOKED"/>
+            <xs:enumeration value="CALLBACK_INVOKED"/>
+            <xs:enumeration value="CALLBACK_MATURED"/>
+            <xs:enumeration value="CALL_QUEUED"/>
+            <xs:enumeration value="CALL_IS_WAITING"/>
+            <xs:enumeration value="CLEARED"/>
+            <xs:enumeration value="CLEAR_INVOKED"/>
+            <xs:enumeration value="CONFERENCE_CALL_HELD"/>
+            <xs:enumeration value="CONFERENCE_CALL_RETRIEVED"/>
+            <xs:enumeration value="CONFERENCE_CONS_HELD"/>
+            <xs:enumeration value="CONFERENCE_CONS_RETRIEVED"/>
+            <xs:enumeration value="CONFERENCED"/>
+            <xs:enumeration value="CONFERENCE_ESTABLISHED"/>
+            <xs:enumeration value="CONFERENCE_INVOKED"/>
+            <xs:enumeration value="CONFERENCE_MEMBER_ADDED"/>
+            <xs:enumeration value="CONFERENCE_MEMBER_DROPPED"/>
+            <xs:enumeration value="CONFERENCE_MONITOR_SET"/>
+            <xs:enumeration value="CONFERENCE_REMOTE_UPDATE"/>
+            <xs:enumeration value="CONFERENCE_SPLIT"/>
+            <xs:enumeration value="CONFERENCE_SPLIT_INVOKED"/>
+            <xs:enumeration value="CONFERENCE_TRANSFERRED"/>
+            <xs:enumeration value="CONF_RETRIEVE_INVOKED"/>
+            <xs:enumeration value="CONS_HOLD"/>
+            <xs:enumeration value="CONS_HOLD_INVOKED"/>
+            <xs:enumeration value="CONS_CALL_INVOKED"/>
+            <xs:enumeration value="CONS_HELD_PARTY_DROPPED"/>
+            <xs:enumeration value="CONTROLLER_COMMS_FAILED"/>
+            <xs:enumeration value="CONTROLLER_COMMS_RESTORED"/>
+            <xs:enumeration value="DELIVERED"/>
+            <xs:enumeration value="DESTINATION_BUSY"/>
+            <xs:enumeration value="DESTINATION_DO_NOT_DISTURB"/>
+            <xs:enumeration value="DESTINATION_NOT_OBTAINABLE"/>
+            <xs:enumeration value="DESTINATION_UNAVAILABLE"/>
+            <xs:enumeration value="DEVICE_IN_SERVICE"/>
+            <xs:enumeration value="DEVICE_OUT_OF_SERVICE"/>
+            <xs:enumeration value="DIVERTED_ALWAYS_FROM"/>
+            <xs:enumeration value="DIVERTED_ALWAYS_TO"/>
+            <xs:enumeration value="DIVERTED_NO_ANSWER_FROM"/>
+            <xs:enumeration value="DIVERTED_NO_ANSWER_TO"/>
+            <xs:enumeration value="DIVERTED_NO_ANSWER_AWAY"/>
+            <xs:enumeration value="DIVERTED_ON_BUSY_FROM"/>
+            <xs:enumeration value="DIVERTED_ON_BUSY_TO"/>
+            <xs:enumeration value="DIVERTED_PICKUP_AWAY"/>
+            <xs:enumeration value="ERROR_DETECTED"/>
+            <xs:enumeration value="EXTENSION_IN_USE"/>
+            <xs:enumeration value="HARD_HELD_PARTY_DROPPED"/>
+            <xs:enumeration value="HARD_HOLD"/>
+            <xs:enumeration value="HARD_HOLD_INVOKED"/>
+            <xs:enumeration value="HARD_HOLD_RETRIEVED"/>
+            <xs:enumeration value="INTRUSION"/>
+            <xs:enumeration value="INTRUSION_INVOKED"/>
+            <xs:enumeration value="INVALID_ACCOUNT_CODE"/>
+            <xs:enumeration value="MEMBER_ANSWERED"/>
+            <xs:enumeration value="MONITOR_SET"/>
+            <xs:enumeration value="NETWORK_BUSY"/>
+            <xs:enumeration value="NETWORK_CONGESTION"/>
+            <xs:enumeration value="NETWORK_NOT_OBTAINABLE"/>
+            <xs:enumeration value="NEW_CALL_INVOKED"/>
+            <xs:enumeration value="NEW_CALL"/>
+            <xs:enumeration value="NO_ANSWER"/>
+            <xs:enumeration value="NO_SUCH_NUMBER"/>
+            <xs:enumeration value="ONS_CALL_ORIGINATED"/>
+            <xs:enumeration value="OTHER_DEVICE_CLEARED"/>
+            <xs:enumeration value="OTHER_DEVICE_DROPPED"/>
+            <xs:enumeration value="PICKUP"/>
+            <xs:enumeration value="PICKUP_INVOKED"/>
+            <xs:enumeration value="PRIVILEGE_VIOLATION"/>
+            <xs:enumeration value="QUEUED_PARTY_DROPPED"/>
+            <xs:enumeration value="RAD_UNAVAILABLE"/>
+            <xs:enumeration value="RECALL_HELD_PARTY"/>
+            <xs:enumeration value="REDIRECTED_AWAY"/>
+            <xs:enumeration value="REDIRECTED_FROM"/>
+            <xs:enumeration value="REDIRECTED_HANDOFF"/>
+            <xs:enumeration value="REDIRECTED_ON_ERROR"/>
+            <xs:enumeration value="REDIRECTED_TO"/>
+            <xs:enumeration value="REMOTE_PARTY_UPDATED"/>
+            <xs:enumeration value="GLOBAL_CALLID_UPDATED"/>
+            <xs:enumeration value="CALL_DISTRIBUTED"/>
+            <xs:enumeration value="CALL_ANSWERED"/>
+            <xs:enumeration value="CALL_DISCONNECTED"/>
+            <xs:enumeration value="CALL_OVERFLOWED"/>
+            <xs:enumeration value="CALL_WAITING_PARTY_DISCONNECTED"/>
+            <xs:enumeration value="CFNA_CALL_QUEUED"/>
+            <xs:enumeration value="CFA_CALL_QUEUED"/>
+            <xs:enumeration value="CFB_CALL_QUEUED"/>
+            <xs:enumeration value="CFA_DESTINATION_BUSY"/>
+            <xs:enumeration value="CFB_DESTINATION_BUSY"/>
+            <xs:enumeration value="RETRIEVE"/>
+            <xs:enumeration value="RETRIEVE_INVOKED"/>
+            <xs:enumeration value="ROUTING_DEVICE_CALL_QUEUED"/>
+            <xs:enumeration value="ROUTING_DEVICE_CALL_OVERFLOW"/>
+            <xs:enumeration value="ROUTING_DEVICE_CALL_REROUTED"/>
+            <xs:enumeration value="ROUTING_DEVICE_CALL_ABONDONED"/>
+            <xs:enumeration value="ROUTING_DEVICE_CFALWAYS_CALL_QUEUED"/>
+            <xs:enumeration value="ROUTING_DEVICE_CFBUSY_CALL_QUEUED"/>
+            <xs:enumeration value="ROUTING_DEVICE_CFNOANS_CALL_QUEUED"/>
+            <xs:enumeration value="ROUTING_DEVICE_RAD_STARTED"/>
+            <xs:enumeration value="ROUTING_DEVICE_REROUTED_CALL_QUEUED"/>
+            <xs:enumeration value="ROUTING_DEVICE_TRANS_CALL_QUEUED"/>
+            <xs:enumeration value="SECONDARY_CONTROLLER_COMMS_FAILED"/>
+            <xs:enumeration value="SECONDARY_MONITOR_SET"/>
+            <xs:enumeration value="SUPERVISED_TRANSFER"/>
+            <xs:enumeration value="TAP_CALL"/>
+            <xs:enumeration value="THIS_DEVICE_DROPPED"/>
+            <xs:enumeration value="TRANSFER_INVOKED"/>
+            <xs:enumeration value="TRANSFER_RECALL_NO_ANSWER"/>
+            <xs:enumeration value="TRANSFER_RECALL_ON_BUSY"/>
+            <xs:enumeration value="TRANSFER_TO_BUSY"/>
+            <xs:enumeration value="TRANSFERRED_CALL"/>
+            <xs:enumeration value="TRUNKS_BUSY"/>
+            <xs:enumeration value="TRUNK_DIGITS_OUTPULSED"/>
+            <xs:enumeration value="UNSUPERVISED_TRANSFER"/>
+            <xs:enumeration value="WAITING_CALL_RINGING"/>
+            <xs:enumeration value="WORK_TIMER_EXPIRED"/>
+            <xs:enumeration value="HANDOFF_PUSH"/>
+            <xs:enumeration value="PEER_OUT_OF_SERVICE"/>
+            <xs:enumeration value="PEER_INSERVICE"/>
+            <xs:enumeration value="EHDU_ACCESS"/>
+            <xs:enumeration value="EHDU_CALL_BACK"/>
+            <xs:enumeration value="CALLING_NAME_UPDATED"/>
+            <xs:enumeration value="FEATURES_ALLOWED_CHANGED"/>
+            <xs:enumeration value="BARGE_INVOKED"/>
+            <xs:enumeration value="CLOSING_CALL_SERVER"/>
+            <xs:enumeration value="RESILIENT_INFO_UPDATE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="featureEventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="AUTO_ANSWER_FEATURE"/>
+            <xs:enumeration value="DO_NOT_DISTURB"/>
+            <xs:enumeration value="MSG_WAITING_INDICATOR"/>
+            <xs:enumeration value="INSERVICE"/>
+            <xs:enumeration value="DO_NOT_DISTURB_ALL"/>
+            <xs:enumeration value="MSG_WAITING_IND_ALL"/>
+            <xs:enumeration value="MAKE_BUSY"/>
+            <xs:enumeration value="JOIN_GROUP"/>
+            <xs:enumeration value="LEAVE_GROUP"/>
+            <xs:enumeration value="JOIN_ALL_ACD_GROUPS"/>
+            <xs:enumeration value="MAKE_BUSY_STATE"/>
+            <xs:enumeration value="LEAVE_All_ACD_GROUPS"/>
+            <xs:enumeration value="ACD_AGENT"/>
+            <xs:enumeration value="ACD_AGENT_BLOCKED"/>
+            <xs:enumeration value="ACD2_LOGIN_NO_LICENSE"/>
+            <xs:enumeration value="HOT_DESK_USER"/>
+            <xs:enumeration value="CF_ALWAYS"/>
+            <xs:enumeration value="CF_BUSY_EXTERNAL"/>
+            <xs:enumeration value="CF_BUSY_INTERNAL"/>
+            <xs:enumeration value="CF_NO_ANSWER_INTERNAL"/>
+            <xs:enumeration value="CF_NO_ANSWER_EXTERNAL"/>
+            <xs:enumeration value="CF_NO_ANSWER_BUSY"/>
+            <xs:enumeration value="CF_ALL_MODES"/>
+            <xs:enumeration value="BRIDGE_JOIN"/>
+            <xs:enumeration value="BRIDGE_LEAVE"/>
+            <xs:enumeration value="BRIDGE_ENABLE_COACHING"/>
+            <xs:enumeration value="BRIDGE_DISABLE_COACHING"/>
+            <xs:enumeration value="BRIDGE_ENABLE_ALL_COACHING"/>
+            <xs:enumeration value="BRIDGE_DISCONNECTED"/>
+            <xs:enumeration value="BRIDGE_CONNECTED"/>
+            <xs:enumeration value="ACD_AGENT_FEATURE"/>
+            <xs:enumeration value="ACTIVATE_FEATURE"/>
+            <xs:enumeration value="CONFERENCE_FEATURE"/>
+            <xs:enumeration value="FORWARD_FEATURE"/>
+            <xs:enumeration value="USER_ID_FEATURE_EVENT"/>
+            <xs:enumeration value="BRIDGE_FEATURE_EVENT"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="callEventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="ACCOUNT_CODE_SET"/>
+            <xs:enumeration value="ACD2_PATH"/>
+            <xs:enumeration value="ACD2_GROUP"/>
+            <xs:enumeration value="GROUP"/>
+            <xs:enumeration value="ACD_AGENT_FEATURE"/>
+            <xs:enumeration value="ACTIVATE_FEATURE"/>
+            <xs:enumeration value="CALL_CLEAR"/>
+            <xs:enumeration value="CALL_CONFERENCED"/>
+            <xs:enumeration value="CALL_DELIVERED"/>
+            <xs:enumeration value="CALL_DIVERTED"/>
+            <xs:enumeration value="CALL_ESTABLISHED"/>
+            <xs:enumeration value="CALL_FAILED"/>
+            <xs:enumeration value="CALL_HELD"/>
+            <xs:enumeration value="CALL_ORIGINATED"/>
+            <xs:enumeration value="CALL_QUEUED"/>
+            <xs:enumeration value="CALL_RECEIVED"/>
+            <xs:enumeration value="CALL_RETRIEVED"/>
+            <xs:enumeration value="CALL_TRANSFERRED"/>
+            <xs:enumeration value="CMD_RESPONSE"/>
+            <xs:enumeration value="CONFERENCE_HELD"/>
+            <xs:enumeration value="CONFERENCE_FEATURE"/>
+            <xs:enumeration value="DEVICE_DROPPED"/>
+            <xs:enumeration value="EXTENSION_IN_USE"/>
+            <xs:enumeration value="FORWARD_FEATURE"/>
+            <xs:enumeration value="IN_SERVICE"/>
+            <xs:enumeration value="MONITOR_SET"/>
+            <xs:enumeration value="OUT_OF_SERVICE"/>
+            <xs:enumeration value="REMOTE_PARTY_UPDATE"/>
+            <xs:enumeration value="RESILIENT_DEVICE"/>
+            <xs:enumeration value="ROUTING_DEVICE"/>
+            <xs:enumeration value="TRUNK_DIGITS_OUTPULSED"/>
+            <xs:enumeration value="WORK_TIMER_EXPIRED"/>
+            <xs:enumeration value="USERID_FEATURE"/>
+            <xs:enumeration value="GROUP_PRESENCE_FEATURE"/>
+            <xs:enumeration value="ACD_EXPRESS_GROUP_EVENT"/>
+            <xs:enumeration value="INFORMATION_UPDATE_EVENT"/>
+            <xs:enumeration value="MONITOR_FAILED_EVENT"/>
+            <xs:enumeration value="PRG_MONITOR_SET_EVENT"/>
+            <xs:enumeration value="PRG_MONITOR_FAILED_EVENT"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="attributeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STRING"/>
+            <xs:enumeration value="INTEGER"/>
+            <xs:enumeration value="LONG_INTEGER"/>
+            <xs:enumeration value="BOOLEAN"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="deviceAttributeNames">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NUMBER"/>
+            <xs:enumeration value="NAME"/>
+            <xs:enumeration value="DEVICE_TYPE"/>
+            <xs:enumeration value="DIALED_DIGITS"/>
+            <xs:enumeration value="ADV_MSG"/>
+            <xs:enumeration value="CALL_ID"/>
+            <xs:enumeration value="SUITE_PILOT_NUMBER"/>
+            <xs:enumeration value="LINE_APPEARANCE"/>
+            <xs:enumeration value="NUMBER_PRIVACY"/>
+            <xs:enumeration value="NAME_PRIVACY"/>
+            <xs:enumeration value="SUITE_PILOT_NAME"/>
+            <xs:enumeration value="PRG_NUMBER"/>
+            <xs:enumeration value="PRG_NAME"/>
+            <xs:enumeration value="TRUNK_OUTPULSED_DIGITS"/>
+            <xs:enumeration value="EHDU_NUMBER"/>
+            <xs:enumeration value="TRUNK_NUMBER"/>
+            <xs:enumeration value="TRUNK_NAME"/>
+            <xs:enumeration value="MFANI_INFO_DIGIT"/>
+            <xs:enumeration value="CALLING_LINE_CATEGORY"/>
+            <xs:enumeration value="PEER_NAME"/>
+            <xs:enumeration value="PEER_ID"/>
+            <xs:enumeration value="AGENT_DN"/>
+            <xs:enumeration value="AGENT_ID"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="callState">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NIL"/>
+            <xs:enumeration value="DELIVERED"/>
+            <xs:enumeration value="ESTABLISHED"/>
+            <xs:enumeration value="EXTENSION_IN_USE"/>
+            <xs:enumeration value="FAILED"/>
+            <xs:enumeration value="FEATURE_DISABLED"/>
+            <xs:enumeration value="FEATURE_ENABLED"/>
+            <xs:enumeration value="HELD"/>
+            <xs:enumeration value="IDLE"/>
+            <xs:enumeration value="ORIGINATED"/>
+            <xs:enumeration value="OUT_OF_SERVICE"/>
+            <xs:enumeration value="QUEUED"/>
+            <xs:enumeration value="RECEIVED"/>
+            <xs:enumeration value="UNAVAILABLE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="callEventAttributeNames">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DIALED_DIGITS"/>
+            <xs:enumeration value="CURRENT_GLOBAL_CALL_ID"/>
+            <xs:enumeration value="PRIMARY_GLOBAL_CALLID"/>
+            <xs:enumeration value="SECONDARY_GLOBAL_CALLID"/>
+            <xs:enumeration value="WORK_TIMER_ACTIVE"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_RINGALL"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_CASCADE"/>
+            <xs:enumeration value="DISTRIBUTION_HUNT_GRP_CIRCULAR"/>
+            <xs:enumeration value="DISTRIBUTION_HUNT_GRP_LINEAR"/>
+            <xs:enumeration value="DISTRIBUTION_PERSONAL_RING_GRP"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_TERMINAL"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_CIRCULAR_CASCADE"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_CIRCULAR"/>
+            <xs:enumeration value="QUEUE_POSITION"/>
+            <xs:enumeration value="ICP_ID"/>
+            <xs:enumeration value="GROUP_MEMBER_ANSWERED"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="CALL_EVENT"/>
+            <xs:enumeration value="FEATURE_EVENT"/>
+            <xs:enumeration value="ACD_EVENT"/>
+            <xs:enumeration value="SYSTEM_EVENT"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="connectionState">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NOT_CONNECTED"/>
+            <xs:enumeration value="CONNECTED"/>
+            <xs:enumeration value="CONNECTION_FAILURE"/>
+            <xs:enumeration value="CONNECTION_ATTEMPT"/>
+            <xs:enumeration value="CONNECTION_INITIALIZING"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="featuresAllowed">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NOT_SUPPORTED"/>
+            <xs:enumeration value="ANSWER_CALL"/>
+            <xs:enumeration value="REDIRECT_CALL"/>
+            <xs:enumeration value="CAMPON_CALL"/>
+            <xs:enumeration value="SET_CALL_ME_BACK"/>
+            <xs:enumeration value="INTRUDE_CALL"/>
+            <xs:enumeration value="ALTERNATE_CALL"/>
+            <xs:enumeration value="TRADE_CALL"/>
+            <xs:enumeration value="CONFERENCE_CALL"/>
+            <xs:enumeration value="SPLIT_CONFERENCE_CALL"/>
+            <xs:enumeration value="CONSULTATION_CALL"/>
+            <xs:enumeration value="CANCEL_CONSULTATION_CALL"/>
+            <xs:enumeration value="TRANSFER_CALL"/>
+            <xs:enumeration value="SEND_CALLBACK_MESSAGE"/>
+            <xs:enumeration value="SET_ACCOUNT_CODE"/>
+            <xs:enumeration value="NEW_CALL"/>
+            <xs:enumeration value="CLEAR_CALL"/>
+            <xs:enumeration value="OUT_PULSE_DIGITS"/>
+            <xs:enumeration value="HOLD_CALL"/>
+            <xs:enumeration value="RETRIEVE_CALL"/>
+            <xs:enumeration value="LISTEN_CALL"/>
+            <xs:enumeration value="ASSIGN_CALLER_ID"/>
+            <xs:enumeration value="ALTER_WORK_TIMER"/>
+            <xs:enumeration value="TAP_CALL"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="featureEventAttributeNames">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CALL_STATE"/>
+            <xs:enumeration value="DEVICE_NUMBER"/>
+            <xs:enumeration value="USER_DN"/>
+            <xs:enumeration value="GROUP_DN"/>
+            <xs:enumeration value="FORWARD_DN"/>
+            <xs:enumeration value="AGENT_DN"/>
+            <xs:enumeration value="AGENT_ID"/>
+            <xs:enumeration value="REGISTRATION_DN"/>
+            <xs:enumeration value="USER_TYPE"/>
+            <xs:enumeration value="FEATURE_EVENT_STATE"/>
+            <xs:enumeration value="ICP_ID"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="deviceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="SIP_PRIVATE_TRUNK"/>
+            <xs:enumeration value="SIP_PUBLIC_TRUNK"/>
+            <xs:enumeration value="MULTICALL_GROUP"/>
+            <xs:enumeration value="HUNT_GROUP"/>
+            <xs:enumeration value="KEYLINE"/>
+            <xs:enumeration value="VOICE_SET_PRIME"/>
+            <xs:enumeration value="ACD_STRUCTURE"/>
+            <xs:enumeration value="LINE_APPEARANCE"/>
+            <xs:enumeration value="DATA_EXTENSION"/>
+            <xs:enumeration value="ACD2_PATH"/>
+            <xs:enumeration value="ACD2_AGENT"/>
+            <xs:enumeration value="ACD2_GROUP"/>
+            <xs:enumeration value="ROUTING_DEVICE"/>
+            <xs:enumeration value="ACD2_REMOTE_SUBGROUP"/>
+            <xs:enumeration value="RING_ALL_GROUP"/>
+            <xs:enumeration value="RING_CASCADE_GROUP"/>
+            <xs:enumeration value="ACDX_AGENT"/>
+            <xs:enumeration value="ACDX_GROUP"/>
+            <xs:enumeration value="ACDX_PATH"/>
+            <xs:enumeration value="PERSONAL_RING_GROUP"/>
+            <xs:enumeration value="PEER"/>
+            <xs:enumeration value="EXTERNAL_DEVICE_TYPE"/>
+            <xs:enumeration value="INTERNAL_DEVICE_TYPE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="callEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="type" type="tns:callEventType"/>
+            <xs:element minOccurs="0" name="cause" type="tns:eventCauseType"/>
+            <xs:element minOccurs="0" name="callState" type="tns:callState"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="callEventAttribute" type="tns:callEventAttributeValue"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="featuresAllowed" type="tns:featuresAllowed"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="device" type="tns:device"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="party" type="tns:partyMember"/>
+            <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountCodeType" type="tns:accountCodeType"/>
+        </xs:sequence>
+        <xs:attribute name="localCallId" type="xs:long" use="required"/>
+        <xs:attribute name="callEventTime" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="acdAgentStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="agentDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="registrationDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="CFNAExt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFNAInt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFBusyExt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFBusyInt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFAlways" type="tns:forwardingInfo"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="agentGroupStatu" type="ns1:acdAgentGroupPresence"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="DND" type="xs:boolean" use="required"/>
+        <xs:attribute name="autoAnswer" type="xs:boolean" use="required"/>
+        <xs:attribute name="msgWaitingLamp" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deviceFeaturesResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="hotDeskUserLoggedInDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="registrationDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="CFNAExt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFNAInt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFBusyExt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFBusyInt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFAlways" type="tns:forwardingInfo"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="DND" type="xs:boolean" use="required"/>
+        <xs:attribute name="autoAnswer" type="xs:boolean" use="required"/>
+        <xs:attribute name="msgWaitingLamp" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="deviceAttributeValue">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="attributeName" type="tns:deviceAttributeNames"/>
+            <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="attributeType" type="tns:attributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="objectIdResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="acdAgentStatusExResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="agentDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="registrationDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="CFNAExt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFNAInt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFBusyExt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFBusyInt" type="tns:forwardingInfo"/>
+            <xs:element minOccurs="0" name="CFAlways" type="tns:forwardingInfo"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="agentGroupStatu" type="ns1:acdAgentGroupPresence"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="DND" type="xs:boolean" use="required"/>
+        <xs:attribute name="makeBusyState" type="xs:boolean" use="required"/>
+        <xs:attribute name="autoAnswer" type="xs:boolean" use="required"/>
+        <xs:attribute name="msgWaitingLamp" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="device">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="deviceName" type="tns:deviceName"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="deviceAttribute" type="tns:deviceAttributeValue"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="numberedEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="eventType" type="tns:eventType"/>
+            <xs:element minOccurs="0" name="callEvent" type="tns:callEventMsg"/>
+            <xs:element minOccurs="0" name="featureEvent" type="tns:featureEventMsg"/>
+            <xs:element minOccurs="0" name="systemEvent" type="tns:systemEventMsg"/>
+            <xs:element minOccurs="0" name="advCallEvent" type="ns1:advCallEventMsg"/>
+            <xs:element minOccurs="0" name="advEventType" type="ns1:advEventType"/>
+            <xs:element minOccurs="0" name="advFeatureEvent" type="ns1:advFeatureEventMsg"/>
+            <xs:element minOccurs="0" name="advSystemEvent" type="ns1:advSystemEventMsg"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="eventNumber" type="xs:int" use="required"/>
+        <xs:attribute name="advanced" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="featureEventAttributeValue">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="attributeName" type="tns:featureEventAttributeNames"/>
+            <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="attributeType" type="tns:attributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="callStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="callEvent" type="tns:callEventMsg"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="forwardingInfo">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="dn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="fwdOn" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="standardEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="eventType" type="tns:eventType"/>
+            <xs:element minOccurs="0" name="callEvent" type="tns:callEventMsg"/>
+            <xs:element minOccurs="0" name="featureEvent" type="tns:featureEventMsg"/>
+            <xs:element minOccurs="0" name="systemEvent" type="tns:systemEventMsg"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="partyMember">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="memberNum" type="xs:string"/>
+            <xs:element minOccurs="0" name="memberName" type="xs:string"/>
+            <xs:element minOccurs="0" name="deviceType" type="tns:deviceType"/>
+            <xs:element minOccurs="0" name="remoteMemberExt" type="xs:string"/>
+            <xs:element minOccurs="0" name="remoteMemberName" type="xs:string"/>
+            <xs:element minOccurs="0" name="memberNetworkExt" type="xs:string"/>
+            <xs:element minOccurs="0" name="peerId" type="xs:string"/>
+            <xs:element minOccurs="0" name="peerName" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="callId" type="xs:long" use="required"/>
+        <xs:attribute name="numberPrivacy" type="xs:boolean" use="required"/>
+        <xs:attribute name="namePrivacy" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="icpIdResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="connectionState" type="tns:connectionState"/>
+            <xs:element minOccurs="0" name="icpVersion" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="restEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="eventMsg" type="tns:numberedEventMsg"/>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="callEventAttributeValue">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="attributeName" type="tns:callEventAttributeNames"/>
+            <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="attributeType" type="tns:attributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="featureEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="eventType" type="tns:featureEventType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="featureEventAttribute" type="tns:featureEventAttributeValue"/>
+        </xs:sequence>
+        <xs:attribute name="time" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="systemEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="eventType" type="tns:systemEventType"/>
+            <xs:element minOccurs="0" name="connectionState" type="tns:connectionState"/>
+        </xs:sequence>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+        <xs:attribute name="time" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="result">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+</xs:schema>

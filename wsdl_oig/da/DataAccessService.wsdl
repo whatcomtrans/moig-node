@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mitel.com/oig/da/DataAccessService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://mitel.com/oig/da/DataAccessService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/da/DataAccessService" xmlns:ns1="http://mitel.com/oig/da" xmlns:tns="http://mitel.com/oig/da/DataAccessService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://mitel.com/oig/da" schemaLocation="da.xsd"/>
+      <xs:element name="getDeiMetaData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeiMetaDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:getDeiMetaDataResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllTuples">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="deiId" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllTuplesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:searchResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getFirstTuple">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="deiId" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getFirstTupleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:searchResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNextTuple">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="deiId" type="xs:int"/>
+            <xs:element name="currentTuple" type="ns1:tuple"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNextTupleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:searchResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchFirstNTuples">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="searchRequest" type="ns1:searchFirstNTuplesRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchFirstNTuplesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:searchResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchNextNTuples">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="searchRequest" type="ns1:searchNextNTuplesRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchNextNTuplesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:searchResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateTuple">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="updateTupleRequest" type="ns1:updateTupleRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateTupleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:updateTupleResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertTuple">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="insertTupleRequest" type="ns1:insertTupleRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertTupleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:updateTupleResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteTuple">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="deleteTupleRequest" type="ns1:deleteTupleRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteTupleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerNotificationHandler">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="eventHandlerURL" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerNotificationHandlerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerDeisForNotification">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="regNotification" type="ns1:notificationRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerDeisForNotificationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deregisterDeisForNotification">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="deregNotification" type="ns1:notificationRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deregisterDeisForNotificationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNotification">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNotificationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:getNotificationResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getNextTupleMessage">
+    <wsdl:part name="part" element="tns:getNextTuple">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerDeisForNotificationMessage">
+    <wsdl:part name="part" element="tns:registerDeisForNotification">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNextTupleResponseMessage">
+    <wsdl:part name="part" element="tns:getNextTupleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeiMetaDataMessage">
+    <wsdl:part name="part" element="tns:getDeiMetaData">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deregisterDeisForNotificationMessage">
+    <wsdl:part name="part" element="tns:deregisterDeisForNotification">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchNextNTuplesMessage">
+    <wsdl:part name="part" element="tns:searchNextNTuples">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchFirstNTuplesResponseMessage">
+    <wsdl:part name="part" element="tns:searchFirstNTuplesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerNotificationHandlerResponseMessage">
+    <wsdl:part name="part" element="tns:registerNotificationHandlerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertTupleResponseMessage">
+    <wsdl:part name="part" element="tns:insertTupleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTupleMessage">
+    <wsdl:part name="part" element="tns:updateTuple">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllTuplesMessage">
+    <wsdl:part name="part" element="tns:getAllTuples">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationResponseMessage">
+    <wsdl:part name="part" element="tns:getNotificationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirstTupleMessage">
+    <wsdl:part name="part" element="tns:getFirstTuple">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeiMetaDataResponseMessage">
+    <wsdl:part name="part" element="tns:getDeiMetaDataResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deregisterDeisForNotificationResponseMessage">
+    <wsdl:part name="part" element="tns:deregisterDeisForNotificationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerNotificationHandlerMessage">
+    <wsdl:part name="part" element="tns:registerNotificationHandler">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTupleResponseMessage">
+    <wsdl:part name="part" element="tns:updateTupleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertTupleMessage">
+    <wsdl:part name="part" element="tns:insertTuple">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTupleResponseMessage">
+    <wsdl:part name="part" element="tns:deleteTupleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchNextNTuplesResponseMessage">
+    <wsdl:part name="part" element="tns:searchNextNTuplesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchFirstNTuplesMessage">
+    <wsdl:part name="part" element="tns:searchFirstNTuples">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllTuplesResponseMessage">
+    <wsdl:part name="part" element="tns:getAllTuplesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerDeisForNotificationResponseMessage">
+    <wsdl:part name="part" element="tns:registerDeisForNotificationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFirstTupleResponseMessage">
+    <wsdl:part name="part" element="tns:getFirstTupleResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTupleMessage">
+    <wsdl:part name="part" element="tns:deleteTuple">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationMessage">
+    <wsdl:part name="part" element="tns:getNotification">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DataAccessServicePortType">
+    <wsdl:operation name="getDeiMetaData">
+      <wsdl:input message="tns:getDeiMetaDataMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeiMetaDataResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTuples">
+      <wsdl:input message="tns:getAllTuplesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllTuplesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFirstTuple">
+      <wsdl:input message="tns:getFirstTupleMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getFirstTupleResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextTuple">
+      <wsdl:input message="tns:getNextTupleMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getNextTupleResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchFirstNTuples">
+      <wsdl:input message="tns:searchFirstNTuplesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:searchFirstNTuplesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchNextNTuples">
+      <wsdl:input message="tns:searchNextNTuplesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:searchNextNTuplesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTuple">
+      <wsdl:input message="tns:updateTupleMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:updateTupleResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTuple">
+      <wsdl:input message="tns:insertTupleMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:insertTupleResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTuple">
+      <wsdl:input message="tns:deleteTupleMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteTupleResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerNotificationHandler">
+      <wsdl:input message="tns:registerNotificationHandlerMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:registerNotificationHandlerResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDeisForNotification">
+      <wsdl:input message="tns:registerDeisForNotificationMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:registerDeisForNotificationResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deregisterDeisForNotification">
+      <wsdl:input message="tns:deregisterDeisForNotificationMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:deregisterDeisForNotificationResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotification">
+      <wsdl:input message="tns:getNotificationMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataAccessServiceBinding" type="tns:DataAccessServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDeiMetaData">
+      <soap:operation soapAction="urn:getDeiMetaData"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTuples">
+      <soap:operation soapAction="urn:getAllTuples"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFirstTuple">
+      <soap:operation soapAction="urn:getFirstTuple"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextTuple">
+      <soap:operation soapAction="urn:getNextTuple"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchFirstNTuples">
+      <soap:operation soapAction="urn:searchFirstNTuples"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchNextNTuples">
+      <soap:operation soapAction="urn:searchNextNTuples"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTuple">
+      <soap:operation soapAction="urn:updateTuple"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTuple">
+      <soap:operation soapAction="urn:insertTuple"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTuple">
+      <soap:operation soapAction="urn:deleteTuple"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerNotificationHandler">
+      <soap:operation soapAction="urn:registerNotificationHandler"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerDeisForNotification">
+      <soap:operation soapAction="urn:registerDeisForNotification"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deregisterDeisForNotification">
+      <soap:operation soapAction="urn:deregisterDeisForNotification"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotification">
+      <soap:operation soapAction="urn:getNotification"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataAccessService">
+    <wsdl:port name="DataAccessServicePort" binding="tns:DataAccessServiceBinding">
+      <soap:address location="http://localhost:8080/axis2/services/DataAccessService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

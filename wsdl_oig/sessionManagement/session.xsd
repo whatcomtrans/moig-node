@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mitel.com/oig/session" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/session">
+    <xs:complexType name="authenticateSessionRequest">
+        <xs:sequence>
+            <xs:element name="signedAuthenticationData" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="loginUser">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="applicationName" type="xs:string"/>
+            <xs:element minOccurs="0" name="applicationPassword" type="xs:string"/>
+            <xs:element minOccurs="0" name="certificate" type="xs:string"/>
+            <xs:element minOccurs="0" name="companyName" type="xs:string"/>
+            <xs:element minOccurs="0" name="localPassword" type="xs:string"/>
+            <xs:element minOccurs="0" name="userEmail" type="xs:string"/>
+            <xs:element minOccurs="0" name="userPassword" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="loginExResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+            <xs:element minOccurs="0" name="authenticationData" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="loginRequest">
+        <xs:sequence>
+            <xs:element name="applicationName" type="xs:string"/>
+            <xs:element name="companyName" type="xs:string"/>
+            <xs:element name="localPassword" type="xs:string"/>
+            <xs:element minOccurs="0" name="applicationPassword" type="xs:string"/>
+            <xs:element minOccurs="0" name="certificate" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="loginAppResp">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+            <xs:element minOccurs="0" name="authenticationData" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="loginUserResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="token" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="userId" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="validateTokenResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="token" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="userId" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="authenticateSessionResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="loginAppReq">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="applicationName" type="xs:string"/>
+            <xs:element minOccurs="0" name="companyName" type="xs:string"/>
+            <xs:element minOccurs="0" name="applicationPassword" type="xs:string"/>
+            <xs:element minOccurs="0" name="localPassword" type="xs:string"/>
+            <xs:element minOccurs="0" name="certificate" type="xs:string"/>
+            <xs:element minOccurs="0" name="version" type="xs:string"/>
+            <xs:element minOccurs="0" name="userId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="versionResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+            <xs:element minOccurs="0" name="serviceVersions" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:element name="loginRequest" type="tns:loginRequest"/>
+    <xs:element name="loginExRequest" type="tns:loginExRequest"/>
+    <xs:complexType name="loginExRequest">
+        <xs:sequence>
+            <xs:element name="applicationName" type="xs:string"/>
+            <xs:element name="companyName" type="xs:string"/>
+            <xs:element name="applicationPassword" type="xs:string"/>
+            <xs:element name="localPassword" type="xs:string"/>
+            <xs:element name="version" type="xs:string"/>
+            <xs:element minOccurs="0" name="certificate" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="loginResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+            <xs:element minOccurs="0" name="authenticationData" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="result">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:element name="authenticateSessionRequest" type="tns:authenticateSessionRequest"/>
+    <xs:complexType name="resetSessionTimerResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="logoutResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDesc" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+</xs:schema>

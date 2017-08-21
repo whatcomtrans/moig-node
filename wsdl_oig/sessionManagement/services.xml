@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.5.4  Built on : Dec 19, 2010 (08:18:42 CET) -->
+<serviceGroup>
+    <service name="SessionService" class="com.mitel.oig.session.SessionServiceLifeCycle" scope="application">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.mitel.oig.session.SessionServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.mitel.oig.session.SessionServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="serviceVersions" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/session/SessionService">
+            <actionMapping>urn:serviceVersions</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/session/SessionService/SessionServicePortType/serviceVersionsResponse</outputActionMapping>
+        </operation>
+        <operation name="registerHAClientCallback" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/session/SessionService">
+            <actionMapping>urn:registerHAClientCallback</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/session/SessionService/SessionServicePortType/registerHAClientCallbackResponse</outputActionMapping>
+        </operation>
+        <operation name="loginEx" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/session/SessionService">
+            <actionMapping>urn:loginEx</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/session/SessionService/SessionServicePortType/loginExResponse</outputActionMapping>
+        </operation>
+        <operation name="authenticate" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/session/SessionService">
+            <actionMapping>urn:authenticate</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/session/SessionService/SessionServicePortType/authenticateResponse</outputActionMapping>
+        </operation>
+        <operation name="logout" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/session/SessionService">
+            <actionMapping>urn:logout</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/session/SessionService/SessionServicePortType/logoutResponse</outputActionMapping>
+        </operation>
+        <operation name="resetSessionTimer" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/session/SessionService">
+            <actionMapping>urn:resetSessionTimer</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/session/SessionService/SessionServicePortType/resetSessionTimerResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

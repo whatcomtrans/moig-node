@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://mitel.com/oig/cc" xmlns:tns="http://mitel.com/oig/cc/advanced" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/cc/advanced">
+    <xs:import namespace="http://mitel.com/oig/cc" schemaLocation="cc.xsd"/>
+    <xs:simpleType name="bridgeCoachType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="COACH_ALL"/>
+            <xs:enumeration value="COACH_WHISPER"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="huntGroupType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HuntGroupVoice"/>
+            <xs:enumeration value="HuntGroupRad"/>
+            <xs:enumeration value="HuntGroupPhantom"/>
+            <xs:enumeration value="HuntGroupVoiceMail"/>
+            <xs:enumeration value="HuntGroupHCIReroute"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="peerType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PEER_UNKNOWN"/>
+            <xs:enumeration value="PEER_SIP"/>
+            <xs:enumeration value="PEER_IP"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ringType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="RING_ALL"/>
+            <xs:enumeration value="RING_CASCADE"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="peerTrunkType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PEER_UNKNOWN"/>
+            <xs:enumeration value="PEER_PUBLIC_TRUNK"/>
+            <xs:enumeration value="PEER_PRIVATE_TRUNK"/>
+            <xs:enumeration value="PEER_BOTH_TRUNK"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="huntGroupMode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HuntGroupModeLinear"/>
+            <xs:enumeration value="HuntGroupModeCyclic"/>
+            <xs:enumeration value="HuntGroupModeAuto"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="advEventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="CALL_EVENT"/>
+            <xs:enumeration value="FEATURE_EVENT"/>
+            <xs:enumeration value="ACD_EVENT"/>
+            <xs:enumeration value="SYSTEM_EVENT"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="advCallEventAttributeNames">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DIALED_DIGITS"/>
+            <xs:enumeration value="CURRENT_GLOBAL_CALL_ID"/>
+            <xs:enumeration value="PRIMARY_GLOBAL_CALLID"/>
+            <xs:enumeration value="SECONDARY_GLOBAL_CALLID"/>
+            <xs:enumeration value="WORK_TIMER_ACTIVE"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_RINGALL"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_CASCADE"/>
+            <xs:enumeration value="DISTRIBUTION_HUNT_GRP_CIRCULAR"/>
+            <xs:enumeration value="DISTRIBUTION_HUNT_GRP_LINEAR"/>
+            <xs:enumeration value="DISTRIBUTION_PERSONAL_RING_GRP"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_TERMINAL"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_CIRCULAR_CASCADE"/>
+            <xs:enumeration value="DISTRIBUTION_RING_GRP_CIRCULAR"/>
+            <xs:enumeration value="QUEUE_POSITION"/>
+            <xs:enumeration value="PIN_SECURITY_SERVICE"/>
+            <xs:enumeration value="ICP_ID"/>
+            <xs:enumeration value="GROUP_MEMBER_ANSWERED"/>
+            <xs:enumeration value="TRUNK_CALL_ID"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="acdAgentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TRADITIONAL"/>
+            <xs:enumeration value="HOTDESK_ACD_EXPRESS"/>
+            <xs:enumeration value="HOTDESK_ACD2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="advCallEventType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNKNOWN"/>
+            <xs:enumeration value="ACCOUNT_CODE_SET"/>
+            <xs:enumeration value="ACD2_PATH"/>
+            <xs:enumeration value="ACD2_GROUP"/>
+            <xs:enumeration value="GROUP"/>
+            <xs:enumeration value="ACD_AGENT_FEATURE"/>
+            <xs:enumeration value="ACTIVATE_FEATURE"/>
+            <xs:enumeration value="CALL_CLEAR"/>
+            <xs:enumeration value="CALL_CONFERENCED"/>
+            <xs:enumeration value="CALL_DELIVERED"/>
+            <xs:enumeration value="CALL_DIVERTED"/>
+            <xs:enumeration value="CALL_ESTABLISHED"/>
+            <xs:enumeration value="CALL_FAILED"/>
+            <xs:enumeration value="CALL_HELD"/>
+            <xs:enumeration value="CALL_ORIGINATED"/>
+            <xs:enumeration value="CALL_QUEUED"/>
+            <xs:enumeration value="CALL_RECEIVED"/>
+            <xs:enumeration value="CALL_RETRIEVED"/>
+            <xs:enumeration value="CALL_TRANSFERRED"/>
+            <xs:enumeration value="CMD_RESPONSE"/>
+            <xs:enumeration value="CONFERENCE_HELD"/>
+            <xs:enumeration value="CONFERENCE_FEATURE"/>
+            <xs:enumeration value="DEVICE_DROPPED"/>
+            <xs:enumeration value="EXTENSION_IN_USE"/>
+            <xs:enumeration value="FORWARD_FEATURE"/>
+            <xs:enumeration value="IN_SERVICE"/>
+            <xs:enumeration value="MONITOR_SET"/>
+            <xs:enumeration value="OUT_OF_SERVICE"/>
+            <xs:enumeration value="REMOTE_PARTY_UPDATE"/>
+            <xs:enumeration value="RESILIENT_DEVICE"/>
+            <xs:enumeration value="ROUTING_DEVICE"/>
+            <xs:enumeration value="TRUNK_DIGITS_OUTPULSED"/>
+            <xs:enumeration value="WORK_TIMER_EXPIRED"/>
+            <xs:enumeration value="USERID_FEATURE"/>
+            <xs:enumeration value="GROUP_PRESENCE_FEATURE"/>
+            <xs:enumeration value="ACD_EXPRESS_GROUP_EVENT"/>
+            <xs:enumeration value="INFORMATION_UPDATE"/>
+            <xs:enumeration value="MONITOR_FAILED_EVENT"/>
+            <xs:enumeration value="PRG_MONITOR_SET_EVENT"/>
+            <xs:enumeration value="PRG_MONITOR_FAILED_EVENT"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="advFeatureEventAttributeNames">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CALL_STATE"/>
+            <xs:enumeration value="DEVICE_NUMBER"/>
+            <xs:enumeration value="USER_DN"/>
+            <xs:enumeration value="GROUP_DN"/>
+            <xs:enumeration value="FORWARD_DN"/>
+            <xs:enumeration value="AGENT_DN"/>
+            <xs:enumeration value="AGENT_ID"/>
+            <xs:enumeration value="REGISTRATION_DN"/>
+            <xs:enumeration value="USER_TYPE"/>
+            <xs:enumeration value="FEATURE_EVENT_STATE"/>
+            <xs:enumeration value="ICP_ID"/>
+            <xs:enumeration value="ACD_AGENT_MAKE_BUSY_CODE"/>
+            <xs:enumeration value="INVOKER_DN"/>
+            <xs:enumeration value="INVOKER_LINE_NUM"/>
+            <xs:enumeration value="BRIDGE_PARTY_DN"/>
+            <xs:enumeration value="BRIDGE_PARTY_LINE_NUM"/>
+            <xs:enumeration value="BRIDGE_STATUS"/>
+            <xs:enumeration value="BRIDGE_COACH_MODE"/>
+            <xs:enumeration value="BRIDGE_NUMBER_REQUESTORS"/>
+            <xs:enumeration value="BRIDGE_REQUESTOR_DN"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="acdGroupDescriptionResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupName" type="xs:string"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="numberOfMembers" type="xs:int" use="required"/>
+        <xs:attribute name="usesSkills" type="xs:int" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advFeatureEventAttributeValue">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="attributeName" type="tns:advFeatureEventAttributeNames"/>
+            <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="attributeType" type="ns1:attributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="advCallEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="type" type="tns:advCallEventType"/>
+            <xs:element minOccurs="0" name="cause" type="ns1:eventCauseType"/>
+            <xs:element minOccurs="0" name="callState" type="ns1:callState"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="callEventAttribute" type="tns:advCallEventAttributeValue"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="featuresAllowed" type="ns1:featuresAllowed"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="device" type="tns:advDevice"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="party" type="tns:advPartyMember"/>
+            <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountCodeType" type="ns1:accountCodeType"/>
+        </xs:sequence>
+        <xs:attribute name="localCallId" type="xs:long" use="required"/>
+        <xs:attribute name="callEventTime" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advSystemEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="eventType" type="ns1:systemEventType"/>
+            <xs:element minOccurs="0" name="connectionState" type="ns1:connectionState"/>
+        </xs:sequence>
+        <xs:attribute name="icpId" type="xs:long" use="required"/>
+        <xs:attribute name="time" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="sipPeerDescriptionResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="peerType" type="tns:peerType"/>
+            <xs:element minOccurs="0" name="peerTrunkType" type="tns:peerTrunkType"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="huntGroupDescriptionResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupName" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="nightRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="huntMode" type="tns:huntGroupMode"/>
+            <xs:element minOccurs="0" name="huntType" type="tns:huntGroupType"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="numberOfMembers" type="xs:int" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="acdAgentGroupPresence">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="groupDn" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="present" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="acdStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="numOfMembers" type="xs:int" use="required"/>
+        <xs:attribute name="membersLoggedIn" type="xs:int" use="required"/>
+        <xs:attribute name="membersBusy" type="xs:int" use="required"/>
+        <xs:attribute name="callsWaiting" type="xs:int" use="required"/>
+        <xs:attribute name="membersInDND" type="xs:int" use="required"/>
+        <xs:attribute name="membersIdle" type="xs:int" use="required"/>
+        <xs:attribute name="membersLoggedInPresent" type="xs:int" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="acdPathDescriptionResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="pathName" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="thirdRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="fourthRad" type="xs:string"/>
+            <xs:element minOccurs="0" name="interflowDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="pathUnavailableDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="numGroups" type="xs:int" use="required"/>
+        <xs:attribute name="interflowEnabled" type="xs:boolean" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advCallStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="callEvent" type="tns:advCallEventMsg"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advCoachCallRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="coachType" type="tns:bridgeCoachType"/>
+        </xs:sequence>
+        <xs:attribute name="sessionId" type="xs:long" use="required"/>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+        <xs:attribute name="callId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="acdAgentDescriptionResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="agentId" type="xs:string"/>
+            <xs:element minOccurs="0" name="agentName" type="xs:string"/>
+            <xs:element minOccurs="0" name="agentDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="agentType" type="tns:acdAgentType"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="agentSkill" type="xs:int" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advFeatureEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="eventType" type="ns1:featureEventType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="featureEventAttribute" type="tns:advFeatureEventAttributeValue"/>
+        </xs:sequence>
+        <xs:attribute name="objectId" type="xs:long" use="required"/>
+        <xs:attribute name="time" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ringGroupDescriptionResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="groupName" type="xs:string"/>
+            <xs:element minOccurs="0" name="overflowPoint" type="xs:string"/>
+            <xs:element minOccurs="0" name="ringType" type="tns:ringType"/>
+            <xs:element minOccurs="0" name="primaryIcpAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryIcpAddress" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="numberOfMembers" type="xs:int" use="required"/>
+        <xs:attribute name="isResilient" type="xs:boolean" use="required"/>
+        <xs:attribute name="primaryIcpId" type="xs:long" use="required"/>
+        <xs:attribute name="secondaryIcpId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advPartyMember">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="memberNum" type="xs:string"/>
+            <xs:element minOccurs="0" name="memberName" type="xs:string"/>
+            <xs:element minOccurs="0" name="deviceType" type="ns1:deviceType"/>
+            <xs:element minOccurs="0" name="remoteMemberExt" type="xs:string"/>
+            <xs:element minOccurs="0" name="remoteMemberName" type="xs:string"/>
+            <xs:element minOccurs="0" name="memberNetworkExt" type="xs:string"/>
+            <xs:element minOccurs="0" name="peerId" type="xs:string"/>
+            <xs:element minOccurs="0" name="peerName" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="callId" type="xs:long" use="required"/>
+        <xs:attribute name="numberPrivacy" type="xs:boolean" use="required"/>
+        <xs:attribute name="namePrivacy" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advDeviceAttributeValue">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="attributeName" type="ns1:deviceAttributeNames"/>
+            <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="attributeType" type="ns1:attributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="advEventMsg">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="eventType" type="tns:advEventType"/>
+            <xs:element minOccurs="0" name="callEvent" type="tns:advCallEventMsg"/>
+            <xs:element minOccurs="0" name="featureEvent" type="tns:advFeatureEventMsg"/>
+            <xs:element minOccurs="0" name="systemEvent" type="tns:advSystemEventMsg"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advDevice">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="deviceName" type="ns1:deviceName"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="deviceAttribute" type="tns:advDeviceAttributeValue"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="sipPeerStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="globalCallId" type="xs:string"/>
+            <xs:element minOccurs="0" name="callState" type="ns1:callState"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="localCallId" type="xs:long" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="advCallEventAttributeValue">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="attributeName" type="tns:advCallEventAttributeNames"/>
+            <xs:element minOccurs="0" name="attributeValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="attributeType" type="ns1:attributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tdmTrunkStatusResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="result" type="xs:boolean" use="required"/>
+        <xs:attribute name="inService" type="xs:boolean" use="required"/>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.5.4  Built on : Dec 19, 2010 (08:18:42 CET) -->
+<serviceGroup>
+    <service name="EventHandlerCCService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.mitel.oig.cc.standard.EventHandlerCCServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.mitel.oig.cc.standard.EventHandlerCCServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="handleEvent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/EventHandlerCCService">
+            <actionMapping>urn:handleEvent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/EventHandlerCCService/EventHandlerCCServicePortType/handleEventResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

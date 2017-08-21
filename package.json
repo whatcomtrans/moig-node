@@ -1,0 +1,28 @@
+{
+  "name": "moig-node",
+  "version": "1.0.0",
+  "description": "Mitel OIG Node Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatcomtrans/moig-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatcomtrans/moig-node/issues"
+  },
+  "homepage": "https://github.com/whatcomtrans/moig-node#readme",
+  "devDependencies": {
+    "mocha": "^3.5.0",
+    "should": "^11.2.1"
+  },
+  "dependencies": {
+    "promise": "^8.0.1",
+    "soap": "^0.20.0"
+  }
+}

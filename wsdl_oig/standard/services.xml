@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.5.4  Built on : Dec 19, 2010 (08:18:42 CET) -->
+<serviceGroup>
+    <service name="StandardCCService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.mitel.oig.cc.standard.StandardCCServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.mitel.oig.cc.standard.StandardCCServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="setAccountCode" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setAccountCode</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setAccountCodeResponse</outputActionMapping>
+        </operation>
+        <operation name="getHotDeskUserLoginDevice" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getHotDeskUserLoginDevice</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getHotDeskUserLoginDeviceResponse</outputActionMapping>
+        </operation>
+        <operation name="advStopMonitorACDExpressObjects" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advStopMonitorACDExpressObjects</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advStopMonitorACDExpressObjectsResponse</outputActionMapping>
+        </operation>
+        <operation name="getCallStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getCallStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getCallStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="splitConferenceCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:splitConferenceCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/splitConferenceCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advStopMonitorACD2AgentFeatures" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advStopMonitorACD2AgentFeatures</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advStopMonitorACD2AgentFeaturesResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDAgentStatusEx" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDAgentStatusEx</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDAgentStatusExResponse</outputActionMapping>
+        </operation>
+        <operation name="logoutExtHotDeskUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:logoutExtHotDeskUser</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/logoutExtHotDeskUserResponse</outputActionMapping>
+        </operation>
+        <operation name="advLogoutACDAgent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advLogoutACDAgent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advLogoutACDAgentResponse</outputActionMapping>
+        </operation>
+        <operation name="clearCallMeBackMsg" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:clearCallMeBackMsg</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/clearCallMeBackMsgResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetSipPeerDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetSipPeerDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetSipPeerDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDAgentDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDAgentDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDAgentDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDXGroupDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDXGroupDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDXGroupDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetACDAgentMakeBusy" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetACDAgentMakeBusy</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetACDAgentMakeBusyResponse</outputActionMapping>
+        </operation>
+        <operation name="advMonitorACD2AgentFeatures" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advMonitorACD2AgentFeatures</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advMonitorACD2AgentFeaturesResponse</outputActionMapping>
+        </operation>
+        <operation name="stopFeatureMonitor" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:stopFeatureMonitor</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/stopFeatureMonitorResponse</outputActionMapping>
+        </operation>
+        <operation name="advMonitorConferences" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advMonitorConferences</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advMonitorConferencesResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetCallStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetCallStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetCallStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="setCFNAInternal" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setCFNAInternal</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setCFNAInternalResponse</outputActionMapping>
+        </operation>
+        <operation name="advMonitorACDExpress" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advMonitorACDExpress</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advMonitorACDExpressResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDGroupStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDGroupStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDGroupStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="transferCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:transferCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/transferCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetTdmTrunkStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetTdmTrunkStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetTdmTrunkStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="registerEventHandler" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:registerEventHandler</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/registerEventHandlerResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetAutoAnswer" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetAutoAnswer</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetAutoAnswerResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetTdmTrunkId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetTdmTrunkId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetTdmTrunkIdResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetRingGroupId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetRingGroupId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetRingGroupIdResponse</outputActionMapping>
+        </operation>
+        <operation name="stopPRGPresenceMonitor" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:stopPRGPresenceMonitor</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/stopPRGPresenceMonitorResponse</outputActionMapping>
+        </operation>
+        <operation name="redirectCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:redirectCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/redirectCallResponse</outputActionMapping>
+        </operation>
+        <operation name="newCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:newCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/newCallResponse</outputActionMapping>
+        </operation>
+        <operation name="getResilientStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getResilientStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getResilientStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="cancelConsCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:cancelConsCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/cancelConsCallResponse</outputActionMapping>
+        </operation>
+        <operation name="outPulseDigits" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:outPulseDigits</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/outPulseDigitsResponse</outputActionMapping>
+        </operation>
+        <operation name="advCancelTrunkMakeBusy" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advCancelTrunkMakeBusy</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advCancelTrunkMakeBusyResponse</outputActionMapping>
+        </operation>
+        <operation name="pickupCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:pickupCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/pickupCallResponse</outputActionMapping>
+        </operation>
+        <operation name="logoutHotDeskUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:logoutHotDeskUser</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/logoutHotDeskUserResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetHuntGroupId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetHuntGroupId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetHuntGroupIdResponse</outputActionMapping>
+        </operation>
+        <operation name="getHotDeskUserDn" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getHotDeskUserDn</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getHotDeskUserDnResponse</outputActionMapping>
+        </operation>
+        <operation name="advIntrudeCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advIntrudeCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advIntrudeCallResponse</outputActionMapping>
+        </operation>
+        <operation name="setDeviceDND" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setDeviceDND</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setDeviceDNDResponse</outputActionMapping>
+        </operation>
+        <operation name="camponCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:camponCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/camponCallResponse</outputActionMapping>
+        </operation>
+        <operation name="holdCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:holdCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/holdCallResponse</outputActionMapping>
+        </operation>
+        <operation name="alternateCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:alternateCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/alternateCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDXGroupId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDXGroupId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDXGroupIdResponse</outputActionMapping>
+        </operation>
+        <operation name="advStopMonitorAllBridges" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advStopMonitorAllBridges</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advStopMonitorAllBridgesResponse</outputActionMapping>
+        </operation>
+        <operation name="retrieveCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:retrieveCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/retrieveCallResponse</outputActionMapping>
+        </operation>
+        <operation name="getDialableNumber" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getDialableNumber</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getDialableNumberResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDAgentId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDAgentId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDAgentIdResponse</outputActionMapping>
+        </operation>
+        <operation name="cancelGetEvent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:cancelGetEvent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/cancelGetEventResponse</outputActionMapping>
+        </operation>
+        <operation name="advACDSilentMonitorEx" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advACDSilentMonitorEx</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advACDSilentMonitorExResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetACD2AgentPresenceAllGroups" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetACD2AgentPresenceAllGroups</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetACD2AgentPresenceAllGroupsResponse</outputActionMapping>
+        </operation>
+        <operation name="advStopMonitorAllTrunkFeatures" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advStopMonitorAllTrunkFeatures</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advStopMonitorAllTrunkFeaturesResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACD2PathId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACD2PathId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACD2PathIdResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACDAgentStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACDAgentStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACDAgentStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="advStopMonitorConferences" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advStopMonitorConferences</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advStopMonitorConferencesResponse</outputActionMapping>
+        </operation>
+        <operation name="advACDRequestHelp" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advACDRequestHelp</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advACDRequestHelpResponse</outputActionMapping>
+        </operation>
+        <operation name="getNumberedEvent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getNumberedEvent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getNumberedEventResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetACDAgentPresence" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetACDAgentPresence</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetACDAgentPresenceResponse</outputActionMapping>
+        </operation>
+        <operation name="consultationCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:consultationCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/consultationCallResponse</outputActionMapping>
+        </operation>
+        <operation name="setCFBusyExternal" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setCFBusyExternal</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setCFBusyExternalResponse</outputActionMapping>
+        </operation>
+        <operation name="monitorObject" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:monitorObject</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/monitorObjectResponse</outputActionMapping>
+        </operation>
+        <operation name="advLoginACDAgent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advLoginACDAgent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advLoginACDAgentResponse</outputActionMapping>
+        </operation>
+        <operation name="remoteRetrieveCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:remoteRetrieveCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/remoteRetrieveCallResponse</outputActionMapping>
+        </operation>
+        <operation name="getDeviceConfiguration" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getDeviceConfiguration</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getDeviceConfigurationResponse</outputActionMapping>
+        </operation>
+        <operation name="registerRestSession" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:registerRestSession</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/registerRestSessionResponse</outputActionMapping>
+        </operation>
+        <operation name="sendCallMeBackMsgNoCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:sendCallMeBackMsgNoCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/sendCallMeBackMsgNoCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetHuntGroupDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetHuntGroupDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetHuntGroupDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="advLoginExternalACDAgent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advLoginExternalACDAgent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advLoginExternalACDAgentResponse</outputActionMapping>
+        </operation>
+        <operation name="answerCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:answerCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/answerCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advAssignCallerId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advAssignCallerId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advAssignCallerIdResponse</outputActionMapping>
+        </operation>
+        <operation name="advCancelACDResezeWorkTimer" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advCancelACDResezeWorkTimer</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advCancelACDResezeWorkTimerResponse</outputActionMapping>
+        </operation>
+        <operation name="advCancelACDWorkTimer" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advCancelACDWorkTimer</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advCancelACDWorkTimerResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACD2GroupId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACD2GroupId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACD2GroupIdResponse</outputActionMapping>
+        </operation>
+        <operation name="setCFBusyInternal" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setCFBusyInternal</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setCFBusyInternalResponse</outputActionMapping>
+        </operation>
+        <operation name="setCFNAExternal" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setCFNAExternal</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setCFNAExternalResponse</outputActionMapping>
+        </operation>
+        <operation name="tradeCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:tradeCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/tradeCallResponse</outputActionMapping>
+        </operation>
+        <operation name="makeCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:makeCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/makeCallResponse</outputActionMapping>
+        </operation>
+        <operation name="getDeviceConfigurationEx" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getDeviceConfigurationEx</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getDeviceConfigurationExResponse</outputActionMapping>
+        </operation>
+        <operation name="setPRGPresence" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setPRGPresence</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setPRGPresenceResponse</outputActionMapping>
+        </operation>
+        <operation name="getDeviceMembers" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getDeviceMembers</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getDeviceMembersResponse</outputActionMapping>
+        </operation>
+        <operation name="getIcpConfig" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getIcpConfig</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getIcpConfigResponse</outputActionMapping>
+        </operation>
+        <operation name="sendCallMeBackMsgForCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:sendCallMeBackMsgForCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/sendCallMeBackMsgForCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advClearCoachCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advClearCoachCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advClearCoachCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetEvent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetEvent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetEventResponse</outputActionMapping>
+        </operation>
+        <operation name="getLineAppearanceId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getLineAppearanceId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getLineAppearanceIdResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetSipPeerId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetSipPeerId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetSipPeerIdResponse</outputActionMapping>
+        </operation>
+        <operation name="loginExtHotDeskUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:loginExtHotDeskUser</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/loginExtHotDeskUserResponse</outputActionMapping>
+        </operation>
+        <operation name="monitorFeatures" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:monitorFeatures</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/monitorFeaturesResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetSystemConferences" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetSystemConferences</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetSystemConferencesResponse</outputActionMapping>
+        </operation>
+        <operation name="getIncomingPhoneNumber" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getIncomingPhoneNumber</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getIncomingPhoneNumberResponse</outputActionMapping>
+        </operation>
+        <operation name="getEvent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getEvent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getEventResponse</outputActionMapping>
+        </operation>
+        <operation name="verifyHotDeskUserPin" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:verifyHotDeskUserPin</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/verifyHotDeskUserPinResponse</outputActionMapping>
+        </operation>
+        <operation name="advMonitorAllTrunkFeatures" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advMonitorAllTrunkFeatures</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advMonitorAllTrunkFeaturesResponse</outputActionMapping>
+        </operation>
+        <operation name="advMonitorAllBridges" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advMonitorAllBridges</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advMonitorAllBridgesResponse</outputActionMapping>
+        </operation>
+        <operation name="setCFAlways" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setCFAlways</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setCFAlwaysResponse</outputActionMapping>
+        </operation>
+        <operation name="loginHotDeskUser" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:loginHotDeskUser</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/loginHotDeskUserResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetRingGroupDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetRingGroupDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetRingGroupDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="advLogoutExternalACDAgent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advLogoutExternalACDAgent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advLogoutExternalACDAgentResponse</outputActionMapping>
+        </operation>
+        <operation name="getDeviceFeatures" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getDeviceFeatures</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getDeviceFeaturesResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACD2GroupDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACD2GroupDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACD2GroupDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetTrunkMakeBusy" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetTrunkMakeBusy</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetTrunkMakeBusyResponse</outputActionMapping>
+        </operation>
+        <operation name="advACDSilentMonitor" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advACDSilentMonitor</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advACDSilentMonitorResponse</outputActionMapping>
+        </operation>
+        <operation name="advTapCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advTapCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advTapCallResponse</outputActionMapping>
+        </operation>
+        <operation name="clearCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:clearCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/clearCallResponse</outputActionMapping>
+        </operation>
+        <operation name="stopMonitor" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:stopMonitor</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/stopMonitorResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetSipPeerStatus" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetSipPeerStatus</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetSipPeerStatusResponse</outputActionMapping>
+        </operation>
+        <operation name="monitorPRGPresence" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:monitorPRGPresence</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/monitorPRGPresenceResponse</outputActionMapping>
+        </operation>
+        <operation name="getRestEvent" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getRestEvent</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getRestEventResponse</outputActionMapping>
+        </operation>
+        <operation name="setCallMeBack" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:setCallMeBack</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/setCallMeBackResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetACDAgentMakeBusyWithCode" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetACDAgentMakeBusyWithCode</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetACDAgentMakeBusyWithCodeResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetMsgWaitingInd" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetMsgWaitingInd</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetMsgWaitingIndResponse</outputActionMapping>
+        </operation>
+        <operation name="advSetGroupMemberPresence" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advSetGroupMemberPresence</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advSetGroupMemberPresenceResponse</outputActionMapping>
+        </operation>
+        <operation name="getPhoneNumberId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getPhoneNumberId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getPhoneNumberIdResponse</outputActionMapping>
+        </operation>
+        <operation name="getIcpId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:getIcpId</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/getIcpIdResponse</outputActionMapping>
+        </operation>
+        <operation name="advGetACD2PathDescription" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advGetACD2PathDescription</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advGetACD2PathDescriptionResponse</outputActionMapping>
+        </operation>
+        <operation name="conferenceCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:conferenceCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/conferenceCallResponse</outputActionMapping>
+        </operation>
+        <operation name="advCoachCall" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://mitel.com/oig/cc/standard/StandardCCService">
+            <actionMapping>urn:advCoachCall</actionMapping>
+            <outputActionMapping>http://mitel.com/oig/cc/standard/StandardCCService/StandardCCServicePortType/advCoachCallResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

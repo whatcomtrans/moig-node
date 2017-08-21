@@ -1,0 +1,4526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mitel.com/oig/cc/standard/StandardCCService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://mitel.com/oig/cc/standard/StandardCCService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://mitel.com/oig/cc/standard/StandardCCService" xmlns:ns1="http://mitel.com/oig/cc" xmlns:ns2="http://mitel.com/oig/cc/advanced" xmlns:ns3="http://mitel.com/oig/cc/standard" xmlns:tns="http://mitel.com/oig/cc/standard/StandardCCService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://mitel.com/oig/cc/advanced" schemaLocation="advanced.xsd"/>
+      <xs:import namespace="http://mitel.com/oig/cc" schemaLocation="cc.xsd"/>
+      <xs:import namespace="http://mitel.com/oig/cc/standard" schemaLocation="standard.xsd"/>
+      <xs:element name="advGetTdmTrunkId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="trunkNum" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetTdmTrunkIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSipPeerId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="sipPeerName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSipPeerIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSipPeerDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSipPeerDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:sipPeerDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2PathId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="pathDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2PathIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2PathDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2PathDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:acdPathDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2GroupId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="acd2GroupDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2GroupIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2GroupDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACD2GroupDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:acdGroupDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="agentDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:acdAgentDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDXGroupId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="acdXGroupDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDXGroupIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDXGroupDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDXGroupDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:acdGroupDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetRingGroupId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="ringGroupDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetRingGroupIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetRingGroupDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetRingGroupDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:ringGroupDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetHuntGroupId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element name="huntGroupDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetHuntGroupIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetHuntGroupDescription">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetHuntGroupDescriptionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:huntGroupDescriptionResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorAllTrunkFeatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorAllTrunkFeaturesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorAllTrunkFeatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorAllTrunkFeaturesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorACD2AgentFeatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorACD2AgentFeaturesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorACD2AgentFeatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorACD2AgentFeaturesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorACDExpress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorACDExpressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorACDExpressObjects">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorACDExpressObjectsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorConferences">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorConferencesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorConferences">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorConferencesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACDAgentPresence">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="groupDn" type="xs:string"/>
+            <xs:element name="presenceValue" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="invokerDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACDAgentPresenceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetGroupMemberPresence">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="groupDn" type="xs:string"/>
+            <xs:element name="presenceValue" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="invokerDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetGroupMemberPresenceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advAssignCallerId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="newName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advAssignCallerIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetMsgWaitingInd">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="state" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetMsgWaitingIndResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetTrunkMakeBusy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="forced" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetTrunkMakeBusyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCancelTrunkMakeBusy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCancelTrunkMakeBusyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advIntrudeCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="callId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advIntrudeCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advACDSilentMonitor">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="agentDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advACDSilentMonitorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advACDRequestHelp">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="supervisorDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advACDRequestHelpResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDGroupStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDGroupStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:acdStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advTapCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element minOccurs="0" name="dn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advTapCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACDAgentMakeBusyWithCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="busyState" type="xs:boolean"/>
+            <xs:element name="busyCode" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACDAgentMakeBusyWithCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACDAgentMakeBusy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="busyState" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACDAgentMakeBusyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetAutoAnswer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="autoAnswerMode" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetAutoAnswerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACD2AgentPresenceAllGroups">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="groupPresenceValue" type="xs:boolean"/>
+            <xs:element name="invokerDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advSetACD2AgentPresenceAllGroupsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLoginACDAgent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="agentDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="pin" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLoginACDAgentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLoginExternalACDAgent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="pin" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLoginExternalACDAgentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLogoutExternalACDAgent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLogoutExternalACDAgentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLogoutACDAgent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advLogoutACDAgentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCancelACDWorkTimer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCancelACDWorkTimerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCancelACDResezeWorkTimer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCancelACDResezeWorkTimerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="timeout" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetEventResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:advEventMsg"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerEventHandler">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="eventHandlerURL" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerEventHandlerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCallStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCallStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:callStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:getDeviceConfigurationRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceConfigurationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:deviceConfigResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPhoneNumberId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:getPhoneNumberIdRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPhoneNumberIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getLineAppearanceId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:getLineAppearanceIdRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getLineAppearanceIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:objectIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIcpId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:getIcpIdRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIcpIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:icpIdResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="monitorObject">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="monitorObjectResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="monitorFeatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="monitorFeaturesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="monitorPRGPresence">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="monitorPRGPresenceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stopPRGPresenceMonitor">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stopPRGPresenceMonitorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stopFeatureMonitor">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stopFeatureMonitorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stopMonitor">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stopMonitorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="makeCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="makeCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultationCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="number" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultationCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="clearCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="clearCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelConsCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelConsCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="conferenceCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="conferenceCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="splitConferenceCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="splitConferenceCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="newCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="newCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="answerCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="answerCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="holdCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="holdCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transferCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transferCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="camponCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="camponCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="alternateCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="alternateCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setAccountCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="accCode" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setAccountCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setPRGPresence">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="presenceValue" type="xs:boolean"/>
+            <xs:element name="PRGDn" type="xs:string"/>
+            <xs:element minOccurs="0" name="invokerDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setPRGPresenceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setDeviceDND">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="dndState" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setDeviceDNDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginHotDeskUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:loginHotDeskUserRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginHotDeskUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginExtHotDeskUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:loginExtHotDeskUserRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginExtHotDeskUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoutHotDeskUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoutHotDeskUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoutExtHotDeskUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoutExtHotDeskUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getHotDeskUserLoginDevice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="hotDeskUserObjectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getHotDeskUserLoginDeviceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:hotDeskUserLoginDeviceResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getHotDeskUserDn">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="hotDeskDeviceObjectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getHotDeskUserDnResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns3:hotDeskUserLoginResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="verifyHotDeskUserPin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="hotDeskUserDn" type="xs:string"/>
+            <xs:element name="pin" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="verifyHotDeskUserPinResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="outPulseDigits">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="digits" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="outPulseDigitsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="pickupCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="ringDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="pickupCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="redirectCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element name="redirectDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="redirectCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceFeatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceFeaturesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:deviceFeaturesResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCallMeBackMsgForCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCallMeBackMsgForCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCallMeBackMsgNoCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objId" type="xs:long"/>
+            <xs:element name="dn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCallMeBackMsgNoCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCallMeBack">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCallMeBackResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="clearCallMeBackMsg">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objIdOfDeviceWithMsg" type="xs:long"/>
+            <xs:element name="deviceDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="clearCallMeBackMsgResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tradeCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tradeCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFNAExternal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:setCFRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFNAExternalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFNAInternal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:setCFRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFNAInternalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFBusyExternal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:setCFRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFBusyExternalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFBusyInternal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:setCFRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFBusyInternalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFAlways">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="request" type="ns3:setCFRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setCFAlwaysResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="timeout" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEventResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns1:standardEventMsg"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetCallStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetCallStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ns2:advCallStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetTdmTrunkStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetTdmTrunkStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns2:tdmTrunkStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSipPeerStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="localCallId" type="xs:long"/>
+            <xs:element minOccurs="0" name="globalCallId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSipPeerStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns2:sipPeerStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:acdAgentStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentStatusEx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetACDAgentStatusExResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:acdAgentStatusExResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorAllBridges">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advMonitorAllBridgesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:monitorResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorAllBridges">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advStopMonitorAllBridgesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCoachCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="coachCall" type="ns2:advCoachCallRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advCoachCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advClearCoachCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element name="callId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advClearCoachCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSystemConferences">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advGetSystemConferencesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advACDSilentMonitorEx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element minOccurs="0" name="agentDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="advACDSilentMonitorExResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getResilientStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getResilientStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:resilientStatusResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceConfigurationEx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="request" type="ns3:getDeviceConfigurationRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceConfigurationExResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:deviceConfigExResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceMembers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="request" type="ns3:getDeviceMembersRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDeviceMembersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:deviceMembersResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="remoteRetrieveCall">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="objectId" type="xs:long"/>
+            <xs:element minOccurs="0" name="remoteDn" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="remoteRetrieveCallResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelGetEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cancelGetEventResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNumberedEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="timeout" type="xs:int"/>
+            <xs:element name="eventNumber" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNumberedEventResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:numberedEventMsg"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerRestSession">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="restSessionId" type="xs:long"/>
+            <xs:element name="sessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerRestSessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:result"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getRestEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="restSessionId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getRestEventResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:restEventMsg"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIcpConfig">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIcpConfigResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:icpConfigResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDialableNumber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element minOccurs="0" name="e164Str" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDialableNumberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:dialNumberResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIncomingPhoneNumber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sessionId" type="xs:long"/>
+            <xs:element name="icpId" type="xs:long"/>
+            <xs:element minOccurs="0" name="digitStr" type="xs:string"/>
+            <xs:element name="incomingCall" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIncomingPhoneNumberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns3:incomingPhoneNumberResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="advSetGroupMemberPresenceMessage">
+    <wsdl:part name="part" element="tns:advSetGroupMemberPresence">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutHotDeskUserMessage">
+    <wsdl:part name="part" element="tns:logoutHotDeskUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorObjectResponseMessage">
+    <wsdl:part name="part" element="tns:monitorObjectResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIncomingPhoneNumberMessage">
+    <wsdl:part name="part" element="tns:getIncomingPhoneNumber">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetGroupMemberPresenceResponseMessage">
+    <wsdl:part name="part" element="tns:advSetGroupMemberPresenceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFNAExternalResponseMessage">
+    <wsdl:part name="part" element="tns:setCFNAExternalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCallMeBackResponseMessage">
+    <wsdl:part name="part" element="tns:setCallMeBackResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerEventHandlerMessage">
+    <wsdl:part name="part" element="tns:registerEventHandler">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelConsCallMessage">
+    <wsdl:part name="part" element="tns:cancelConsCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLogoutACDAgentMessage">
+    <wsdl:part name="part" element="tns:advLogoutACDAgent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDeviceDNDMessage">
+    <wsdl:part name="part" element="tns:setDeviceDND">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCallMeBackMsgNoCallResponseMessage">
+    <wsdl:part name="part" element="tns:sendCallMeBackMsgNoCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCancelACDWorkTimerMessage">
+    <wsdl:part name="part" element="tns:advCancelACDWorkTimer">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advACDSilentMonitorResponseMessage">
+    <wsdl:part name="part" element="tns:advACDSilentMonitorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIcpIdResponseMessage">
+    <wsdl:part name="part" element="tns:getIcpIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFAlwaysResponseMessage">
+    <wsdl:part name="part" element="tns:setCFAlwaysResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelGetEventMessage">
+    <wsdl:part name="part" element="tns:cancelGetEvent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSipPeerDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetSipPeerDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCoachCallResponseMessage">
+    <wsdl:part name="part" element="tns:advCoachCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorAllBridgesResponseMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorAllBridgesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACDAgentPresenceMessage">
+    <wsdl:part name="part" element="tns:advSetACDAgentPresence">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLineAppearanceIdResponseMessage">
+    <wsdl:part name="part" element="tns:getLineAppearanceIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACD2AgentPresenceAllGroupsMessage">
+    <wsdl:part name="part" element="tns:advSetACD2AgentPresenceAllGroups">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopMonitorMessage">
+    <wsdl:part name="part" element="tns:stopMonitor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setPRGPresenceResponseMessage">
+    <wsdl:part name="part" element="tns:setPRGPresenceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="makeCallResponseMessage">
+    <wsdl:part name="part" element="tns:makeCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetHuntGroupIdMessage">
+    <wsdl:part name="part" element="tns:advGetHuntGroupId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advACDRequestHelpResponseMessage">
+    <wsdl:part name="part" element="tns:advACDRequestHelpResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFBusyExternalMessage">
+    <wsdl:part name="part" element="tns:setCFBusyExternal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACDAgentMakeBusyResponseMessage">
+    <wsdl:part name="part" element="tns:advSetACDAgentMakeBusyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIncomingPhoneNumberResponseMessage">
+    <wsdl:part name="part" element="tns:getIncomingPhoneNumberResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIcpIdMessage">
+    <wsdl:part name="part" element="tns:getIcpId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetRingGroupIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetRingGroupIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetCallStatusMessage">
+    <wsdl:part name="part" element="tns:advGetCallStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentStatusMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetTdmTrunkIdMessage">
+    <wsdl:part name="part" element="tns:advGetTdmTrunkId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceConfigurationExMessage">
+    <wsdl:part name="part" element="tns:getDeviceConfigurationEx">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorFeaturesResponseMessage">
+    <wsdl:part name="part" element="tns:monitorFeaturesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACDAgentMakeBusyWithCodeResponseMessage">
+    <wsdl:part name="part" element="tns:advSetACDAgentMakeBusyWithCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACD2AgentPresenceAllGroupsResponseMessage">
+    <wsdl:part name="part" element="tns:advSetACD2AgentPresenceAllGroupsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceFeaturesMessage">
+    <wsdl:part name="part" element="tns:getDeviceFeatures">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCallStatusResponseMessage">
+    <wsdl:part name="part" element="tns:getCallStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advAssignCallerIdMessage">
+    <wsdl:part name="part" element="tns:advAssignCallerId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNumberedEventResponseMessage">
+    <wsdl:part name="part" element="tns:getNumberedEventResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACDAgentMakeBusyWithCodeMessage">
+    <wsdl:part name="part" element="tns:advSetACDAgentMakeBusyWithCode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setPRGPresenceMessage">
+    <wsdl:part name="part" element="tns:setPRGPresence">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newCallMessage">
+    <wsdl:part name="part" element="tns:newCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACDAgentMakeBusyMessage">
+    <wsdl:part name="part" element="tns:advSetACDAgentMakeBusy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCancelACDWorkTimerResponseMessage">
+    <wsdl:part name="part" element="tns:advCancelACDWorkTimerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopPRGPresenceMonitorMessage">
+    <wsdl:part name="part" element="tns:stopPRGPresenceMonitor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advIntrudeCallMessage">
+    <wsdl:part name="part" element="tns:advIntrudeCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutExtHotDeskUserMessage">
+    <wsdl:part name="part" element="tns:logoutExtHotDeskUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotDeskUserDnResponseMessage">
+    <wsdl:part name="part" element="tns:getHotDeskUserDnResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLoginExternalACDAgentResponseMessage">
+    <wsdl:part name="part" element="tns:advLoginExternalACDAgentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerRestSessionMessage">
+    <wsdl:part name="part" element="tns:registerRestSession">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorConferencesMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorConferences">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetAutoAnswerResponseMessage">
+    <wsdl:part name="part" element="tns:advSetAutoAnswerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorAllTrunkFeaturesResponseMessage">
+    <wsdl:part name="part" element="tns:advMonitorAllTrunkFeaturesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetTdmTrunkIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetTdmTrunkIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFAlwaysMessage">
+    <wsdl:part name="part" element="tns:setCFAlways">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLoginACDAgentMessage">
+    <wsdl:part name="part" element="tns:advLoginACDAgent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advACDRequestHelpMessage">
+    <wsdl:part name="part" element="tns:advACDRequestHelp">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSipPeerIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetSipPeerIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelConsCallResponseMessage">
+    <wsdl:part name="part" element="tns:cancelConsCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIcpConfigResponseMessage">
+    <wsdl:part name="part" element="tns:getIcpConfigResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDXGroupIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDXGroupIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentStatusExResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentStatusExResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2GroupIdMessage">
+    <wsdl:part name="part" element="tns:advGetACD2GroupId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorFeaturesMessage">
+    <wsdl:part name="part" element="tns:monitorFeatures">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advAssignCallerIdResponseMessage">
+    <wsdl:part name="part" element="tns:advAssignCallerIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSipPeerStatusMessage">
+    <wsdl:part name="part" element="tns:advGetSipPeerStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferCallMessage">
+    <wsdl:part name="part" element="tns:transferCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="remoteRetrieveCallResponseMessage">
+    <wsdl:part name="part" element="tns:remoteRetrieveCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRestEventResponseMessage">
+    <wsdl:part name="part" element="tns:getRestEventResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetTdmTrunkStatusMessage">
+    <wsdl:part name="part" element="tns:advGetTdmTrunkStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2PathDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetACD2PathDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetEventResponseMessage">
+    <wsdl:part name="part" element="tns:advGetEventResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopMonitorResponseMessage">
+    <wsdl:part name="part" element="tns:stopMonitorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotDeskUserLoginDeviceMessage">
+    <wsdl:part name="part" element="tns:getHotDeskUserLoginDevice">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorACD2AgentFeaturesResponseMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorACD2AgentFeaturesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advClearCoachCallMessage">
+    <wsdl:part name="part" element="tns:advClearCoachCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetMsgWaitingIndResponseMessage">
+    <wsdl:part name="part" element="tns:advSetMsgWaitingIndResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorACDExpressMessage">
+    <wsdl:part name="part" element="tns:advMonitorACDExpress">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="holdCallResponseMessage">
+    <wsdl:part name="part" element="tns:holdCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advClearCoachCallResponseMessage">
+    <wsdl:part name="part" element="tns:advClearCoachCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alternateCallResponseMessage">
+    <wsdl:part name="part" element="tns:alternateCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorACDExpressResponseMessage">
+    <wsdl:part name="part" element="tns:advMonitorACDExpressResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tradeCallMessage">
+    <wsdl:part name="part" element="tns:tradeCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advACDSilentMonitorExResponseMessage">
+    <wsdl:part name="part" element="tns:advACDSilentMonitorExResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCallMeBackMsgForCallMessage">
+    <wsdl:part name="part" element="tns:sendCallMeBackMsgForCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCancelTrunkMakeBusyMessage">
+    <wsdl:part name="part" element="tns:advCancelTrunkMakeBusy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopFeatureMonitorMessage">
+    <wsdl:part name="part" element="tns:stopFeatureMonitor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="holdCallMessage">
+    <wsdl:part name="part" element="tns:holdCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advIntrudeCallResponseMessage">
+    <wsdl:part name="part" element="tns:advIntrudeCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveCallResponseMessage">
+    <wsdl:part name="part" element="tns:retrieveCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNumberedEventMessage">
+    <wsdl:part name="part" element="tns:getNumberedEvent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentStatusExMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentStatusEx">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetTrunkMakeBusyResponseMessage">
+    <wsdl:part name="part" element="tns:advSetTrunkMakeBusyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="outPulseDigitsMessage">
+    <wsdl:part name="part" element="tns:outPulseDigits">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2GroupIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACD2GroupIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="camponCallMessage">
+    <wsdl:part name="part" element="tns:camponCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCallMeBackMsgForCallResponseMessage">
+    <wsdl:part name="part" element="tns:sendCallMeBackMsgForCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerEventHandlerResponseMessage">
+    <wsdl:part name="part" element="tns:registerEventHandlerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="splitConferenceCallResponseMessage">
+    <wsdl:part name="part" element="tns:splitConferenceCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clearCallMeBackMsgMessage">
+    <wsdl:part name="part" element="tns:clearCallMeBackMsg">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSystemConferencesResponseMessage">
+    <wsdl:part name="part" element="tns:advGetSystemConferencesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDialableNumberResponseMessage">
+    <wsdl:part name="part" element="tns:getDialableNumberResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelGetEventResponseMessage">
+    <wsdl:part name="part" element="tns:cancelGetEventResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResilientStatusResponseMessage">
+    <wsdl:part name="part" element="tns:getResilientStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginExtHotDeskUserResponseMessage">
+    <wsdl:part name="part" element="tns:loginExtHotDeskUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLoginACDAgentResponseMessage">
+    <wsdl:part name="part" element="tns:advLoginACDAgentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advTapCallResponseMessage">
+    <wsdl:part name="part" element="tns:advTapCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCancelTrunkMakeBusyResponseMessage">
+    <wsdl:part name="part" element="tns:advCancelTrunkMakeBusyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultationCallMessage">
+    <wsdl:part name="part" element="tns:consultationCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFBusyExternalResponseMessage">
+    <wsdl:part name="part" element="tns:setCFBusyExternalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentIdMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPhoneNumberIdMessage">
+    <wsdl:part name="part" element="tns:getPhoneNumberId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLoginExternalACDAgentMessage">
+    <wsdl:part name="part" element="tns:advLoginExternalACDAgent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferCallResponseMessage">
+    <wsdl:part name="part" element="tns:transferCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceMembersMessage">
+    <wsdl:part name="part" element="tns:getDeviceMembers">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginExtHotDeskUserMessage">
+    <wsdl:part name="part" element="tns:loginExtHotDeskUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetRingGroupDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetRingGroupDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorACD2AgentFeaturesMessage">
+    <wsdl:part name="part" element="tns:advMonitorACD2AgentFeatures">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setAccountCodeMessage">
+    <wsdl:part name="part" element="tns:setAccountCode">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceConfigurationMessage">
+    <wsdl:part name="part" element="tns:getDeviceConfiguration">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advTapCallMessage">
+    <wsdl:part name="part" element="tns:advTapCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSipPeerDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetSipPeerDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorPRGPresenceResponseMessage">
+    <wsdl:part name="part" element="tns:monitorPRGPresenceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorConferencesMessage">
+    <wsdl:part name="part" element="tns:advMonitorConferences">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentStatusResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDialableNumberMessage">
+    <wsdl:part name="part" element="tns:getDialableNumber">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginHotDeskUserResponseMessage">
+    <wsdl:part name="part" element="tns:loginHotDeskUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultationCallResponseMessage">
+    <wsdl:part name="part" element="tns:consultationCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceMembersResponseMessage">
+    <wsdl:part name="part" element="tns:getDeviceMembersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clearCallMessage">
+    <wsdl:part name="part" element="tns:clearCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCallStatusMessage">
+    <wsdl:part name="part" element="tns:getCallStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="conferenceCallMessage">
+    <wsdl:part name="part" element="tns:conferenceCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetRingGroupIdMessage">
+    <wsdl:part name="part" element="tns:advGetRingGroupId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorACD2AgentFeaturesMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorACD2AgentFeatures">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorACDExpressObjectsMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorACDExpressObjects">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginHotDeskUserMessage">
+    <wsdl:part name="part" element="tns:loginHotDeskUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutExtHotDeskUserResponseMessage">
+    <wsdl:part name="part" element="tns:logoutExtHotDeskUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceConfigurationExResponseMessage">
+    <wsdl:part name="part" element="tns:getDeviceConfigurationExResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceConfigurationResponseMessage">
+    <wsdl:part name="part" element="tns:getDeviceConfigurationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorConferencesResponseMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorConferencesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorAllBridgesMessage">
+    <wsdl:part name="part" element="tns:advMonitorAllBridges">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetAutoAnswerMessage">
+    <wsdl:part name="part" element="tns:advSetAutoAnswer">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorACD2AgentFeaturesResponseMessage">
+    <wsdl:part name="part" element="tns:advMonitorACD2AgentFeaturesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setAccountCodeResponseMessage">
+    <wsdl:part name="part" element="tns:setAccountCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerRestSessionResponseMessage">
+    <wsdl:part name="part" element="tns:registerRestSessionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDAgentIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDAgentIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResilientStatusMessage">
+    <wsdl:part name="part" element="tns:getResilientStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verifyHotDeskUserPinMessage">
+    <wsdl:part name="part" element="tns:verifyHotDeskUserPin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendCallMeBackMsgNoCallMessage">
+    <wsdl:part name="part" element="tns:sendCallMeBackMsgNoCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSystemConferencesMessage">
+    <wsdl:part name="part" element="tns:advGetSystemConferences">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="answerCallResponseMessage">
+    <wsdl:part name="part" element="tns:answerCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="remoteRetrieveCallMessage">
+    <wsdl:part name="part" element="tns:remoteRetrieveCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDXGroupDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDXGroupDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetMsgWaitingIndMessage">
+    <wsdl:part name="part" element="tns:advSetMsgWaitingInd">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2GroupDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetACD2GroupDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2PathDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACD2PathDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="conferenceCallResponseMessage">
+    <wsdl:part name="part" element="tns:conferenceCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLineAppearanceIdMessage">
+    <wsdl:part name="part" element="tns:getLineAppearanceId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCancelACDResezeWorkTimerResponseMessage">
+    <wsdl:part name="part" element="tns:advCancelACDResezeWorkTimerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetHuntGroupDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetHuntGroupDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceFeaturesResponseMessage">
+    <wsdl:part name="part" element="tns:getDeviceFeaturesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetEventMessage">
+    <wsdl:part name="part" element="tns:advGetEvent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCancelACDResezeWorkTimerMessage">
+    <wsdl:part name="part" element="tns:advCancelACDResezeWorkTimer">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="answerCallMessage">
+    <wsdl:part name="part" element="tns:answerCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetHuntGroupDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetHuntGroupDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorConferencesResponseMessage">
+    <wsdl:part name="part" element="tns:advMonitorConferencesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2GroupDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACD2GroupDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="redirectCallResponseMessage">
+    <wsdl:part name="part" element="tns:redirectCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveCallMessage">
+    <wsdl:part name="part" element="tns:retrieveCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2PathIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACD2PathIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutHotDeskUserResponseMessage">
+    <wsdl:part name="part" element="tns:logoutHotDeskUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorAllTrunkFeaturesMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorAllTrunkFeatures">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorPRGPresenceMessage">
+    <wsdl:part name="part" element="tns:monitorPRGPresence">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACD2PathIdMessage">
+    <wsdl:part name="part" element="tns:advGetACD2PathId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotDeskUserDnMessage">
+    <wsdl:part name="part" element="tns:getHotDeskUserDn">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetTrunkMakeBusyMessage">
+    <wsdl:part name="part" element="tns:advSetTrunkMakeBusy">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="camponCallResponseMessage">
+    <wsdl:part name="part" element="tns:camponCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDeviceDNDResponseMessage">
+    <wsdl:part name="part" element="tns:setDeviceDNDResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pickupCallResponseMessage">
+    <wsdl:part name="part" element="tns:pickupCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFNAInternalMessage">
+    <wsdl:part name="part" element="tns:setCFNAInternal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFBusyInternalResponseMessage">
+    <wsdl:part name="part" element="tns:setCFBusyInternalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newCallResponseMessage">
+    <wsdl:part name="part" element="tns:newCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorAllBridgesResponseMessage">
+    <wsdl:part name="part" element="tns:advMonitorAllBridgesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advACDSilentMonitorMessage">
+    <wsdl:part name="part" element="tns:advACDSilentMonitor">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorAllBridgesMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorAllBridges">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="makeCallMessage">
+    <wsdl:part name="part" element="tns:makeCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="splitConferenceCallMessage">
+    <wsdl:part name="part" element="tns:splitConferenceCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verifyHotDeskUserPinResponseMessage">
+    <wsdl:part name="part" element="tns:verifyHotDeskUserPinResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="outPulseDigitsResponseMessage">
+    <wsdl:part name="part" element="tns:outPulseDigitsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHotDeskUserLoginDeviceResponseMessage">
+    <wsdl:part name="part" element="tns:getHotDeskUserLoginDeviceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEventResponseMessage">
+    <wsdl:part name="part" element="tns:getEventResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetHuntGroupIdResponseMessage">
+    <wsdl:part name="part" element="tns:advGetHuntGroupIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFNAInternalResponseMessage">
+    <wsdl:part name="part" element="tns:setCFNAInternalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advCoachCallMessage">
+    <wsdl:part name="part" element="tns:advCoachCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetRingGroupDescriptionResponseMessage">
+    <wsdl:part name="part" element="tns:advGetRingGroupDescriptionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tradeCallResponseMessage">
+    <wsdl:part name="part" element="tns:tradeCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSipPeerIdMessage">
+    <wsdl:part name="part" element="tns:advGetSipPeerId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopFeatureMonitorResponseMessage">
+    <wsdl:part name="part" element="tns:stopFeatureMonitorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advACDSilentMonitorExMessage">
+    <wsdl:part name="part" element="tns:advACDSilentMonitorEx">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pickupCallMessage">
+    <wsdl:part name="part" element="tns:pickupCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRestEventMessage">
+    <wsdl:part name="part" element="tns:getRestEvent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFNAExternalMessage">
+    <wsdl:part name="part" element="tns:setCFNAExternal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLogoutExternalACDAgentResponseMessage">
+    <wsdl:part name="part" element="tns:advLogoutExternalACDAgentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPhoneNumberIdResponseMessage">
+    <wsdl:part name="part" element="tns:getPhoneNumberIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorACDExpressObjectsResponseMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorACDExpressObjectsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCFBusyInternalMessage">
+    <wsdl:part name="part" element="tns:setCFBusyInternal">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDXGroupIdMessage">
+    <wsdl:part name="part" element="tns:advGetACDXGroupId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="alternateCallMessage">
+    <wsdl:part name="part" element="tns:alternateCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopPRGPresenceMonitorResponseMessage">
+    <wsdl:part name="part" element="tns:stopPRGPresenceMonitorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetSipPeerStatusResponseMessage">
+    <wsdl:part name="part" element="tns:advGetSipPeerStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clearCallMeBackMsgResponseMessage">
+    <wsdl:part name="part" element="tns:clearCallMeBackMsgResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetTdmTrunkStatusResponseMessage">
+    <wsdl:part name="part" element="tns:advGetTdmTrunkStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDXGroupDescriptionMessage">
+    <wsdl:part name="part" element="tns:advGetACDXGroupDescription">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="monitorObjectMessage">
+    <wsdl:part name="part" element="tns:monitorObject">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDGroupStatusMessage">
+    <wsdl:part name="part" element="tns:advGetACDGroupStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetACDGroupStatusResponseMessage">
+    <wsdl:part name="part" element="tns:advGetACDGroupStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEventMessage">
+    <wsdl:part name="part" element="tns:getEvent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setCallMeBackMessage">
+    <wsdl:part name="part" element="tns:setCallMeBack">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advStopMonitorAllTrunkFeaturesResponseMessage">
+    <wsdl:part name="part" element="tns:advStopMonitorAllTrunkFeaturesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLogoutExternalACDAgentMessage">
+    <wsdl:part name="part" element="tns:advLogoutExternalACDAgent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="redirectCallMessage">
+    <wsdl:part name="part" element="tns:redirectCall">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advGetCallStatusResponseMessage">
+    <wsdl:part name="part" element="tns:advGetCallStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advSetACDAgentPresenceResponseMessage">
+    <wsdl:part name="part" element="tns:advSetACDAgentPresenceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advMonitorAllTrunkFeaturesMessage">
+    <wsdl:part name="part" element="tns:advMonitorAllTrunkFeatures">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advLogoutACDAgentResponseMessage">
+    <wsdl:part name="part" element="tns:advLogoutACDAgentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getIcpConfigMessage">
+    <wsdl:part name="part" element="tns:getIcpConfig">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clearCallResponseMessage">
+    <wsdl:part name="part" element="tns:clearCallResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StandardCCServicePortType">
+    <wsdl:operation name="advGetTdmTrunkId">
+      <wsdl:input message="tns:advGetTdmTrunkIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetTdmTrunkIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSipPeerId">
+      <wsdl:input message="tns:advGetSipPeerIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetSipPeerIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSipPeerDescription">
+      <wsdl:input message="tns:advGetSipPeerDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetSipPeerDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2PathId">
+      <wsdl:input message="tns:advGetACD2PathIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACD2PathIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2PathDescription">
+      <wsdl:input message="tns:advGetACD2PathDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACD2PathDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2GroupId">
+      <wsdl:input message="tns:advGetACD2GroupIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACD2GroupIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2GroupDescription">
+      <wsdl:input message="tns:advGetACD2GroupDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACD2GroupDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentId">
+      <wsdl:input message="tns:advGetACDAgentIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDAgentIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentDescription">
+      <wsdl:input message="tns:advGetACDAgentDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDAgentDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDXGroupId">
+      <wsdl:input message="tns:advGetACDXGroupIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDXGroupIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDXGroupDescription">
+      <wsdl:input message="tns:advGetACDXGroupDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDXGroupDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetRingGroupId">
+      <wsdl:input message="tns:advGetRingGroupIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetRingGroupIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetRingGroupDescription">
+      <wsdl:input message="tns:advGetRingGroupDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetRingGroupDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetHuntGroupId">
+      <wsdl:input message="tns:advGetHuntGroupIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetHuntGroupIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetHuntGroupDescription">
+      <wsdl:input message="tns:advGetHuntGroupDescriptionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetHuntGroupDescriptionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorAllTrunkFeatures">
+      <wsdl:input message="tns:advMonitorAllTrunkFeaturesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advMonitorAllTrunkFeaturesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorAllTrunkFeatures">
+      <wsdl:input message="tns:advStopMonitorAllTrunkFeaturesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advStopMonitorAllTrunkFeaturesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorACD2AgentFeatures">
+      <wsdl:input message="tns:advMonitorACD2AgentFeaturesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advMonitorACD2AgentFeaturesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorACD2AgentFeatures">
+      <wsdl:input message="tns:advStopMonitorACD2AgentFeaturesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advStopMonitorACD2AgentFeaturesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorACDExpress">
+      <wsdl:input message="tns:advMonitorACDExpressMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advMonitorACDExpressResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorACDExpressObjects">
+      <wsdl:input message="tns:advStopMonitorACDExpressObjectsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advStopMonitorACDExpressObjectsResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorConferences">
+      <wsdl:input message="tns:advMonitorConferencesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advMonitorConferencesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorConferences">
+      <wsdl:input message="tns:advStopMonitorConferencesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advStopMonitorConferencesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACDAgentPresence">
+      <wsdl:input message="tns:advSetACDAgentPresenceMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetACDAgentPresenceResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetGroupMemberPresence">
+      <wsdl:input message="tns:advSetGroupMemberPresenceMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetGroupMemberPresenceResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advAssignCallerId">
+      <wsdl:input message="tns:advAssignCallerIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advAssignCallerIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetMsgWaitingInd">
+      <wsdl:input message="tns:advSetMsgWaitingIndMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetMsgWaitingIndResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetTrunkMakeBusy">
+      <wsdl:input message="tns:advSetTrunkMakeBusyMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetTrunkMakeBusyResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCancelTrunkMakeBusy">
+      <wsdl:input message="tns:advCancelTrunkMakeBusyMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advCancelTrunkMakeBusyResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advIntrudeCall">
+      <wsdl:input message="tns:advIntrudeCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advIntrudeCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advACDSilentMonitor">
+      <wsdl:input message="tns:advACDSilentMonitorMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advACDSilentMonitorResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advACDRequestHelp">
+      <wsdl:input message="tns:advACDRequestHelpMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advACDRequestHelpResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDGroupStatus">
+      <wsdl:input message="tns:advGetACDGroupStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDGroupStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advTapCall">
+      <wsdl:input message="tns:advTapCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advTapCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACDAgentMakeBusyWithCode">
+      <wsdl:input message="tns:advSetACDAgentMakeBusyWithCodeMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetACDAgentMakeBusyWithCodeResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACDAgentMakeBusy">
+      <wsdl:input message="tns:advSetACDAgentMakeBusyMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetACDAgentMakeBusyResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetAutoAnswer">
+      <wsdl:input message="tns:advSetAutoAnswerMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetAutoAnswerResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACD2AgentPresenceAllGroups">
+      <wsdl:input message="tns:advSetACD2AgentPresenceAllGroupsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advSetACD2AgentPresenceAllGroupsResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLoginACDAgent">
+      <wsdl:input message="tns:advLoginACDAgentMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advLoginACDAgentResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLoginExternalACDAgent">
+      <wsdl:input message="tns:advLoginExternalACDAgentMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advLoginExternalACDAgentResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLogoutExternalACDAgent">
+      <wsdl:input message="tns:advLogoutExternalACDAgentMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advLogoutExternalACDAgentResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLogoutACDAgent">
+      <wsdl:input message="tns:advLogoutACDAgentMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advLogoutACDAgentResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCancelACDWorkTimer">
+      <wsdl:input message="tns:advCancelACDWorkTimerMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advCancelACDWorkTimerResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCancelACDResezeWorkTimer">
+      <wsdl:input message="tns:advCancelACDResezeWorkTimerMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advCancelACDResezeWorkTimerResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetEvent">
+      <wsdl:input message="tns:advGetEventMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetEventResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerEventHandler">
+      <wsdl:input message="tns:registerEventHandlerMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:registerEventHandlerResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCallStatus">
+      <wsdl:input message="tns:getCallStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getCallStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceConfiguration">
+      <wsdl:input message="tns:getDeviceConfigurationMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeviceConfigurationResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneNumberId">
+      <wsdl:input message="tns:getPhoneNumberIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getPhoneNumberIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLineAppearanceId">
+      <wsdl:input message="tns:getLineAppearanceIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getLineAppearanceIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIcpId">
+      <wsdl:input message="tns:getIcpIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getIcpIdResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitorObject">
+      <wsdl:input message="tns:monitorObjectMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:monitorObjectResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitorFeatures">
+      <wsdl:input message="tns:monitorFeaturesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:monitorFeaturesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitorPRGPresence">
+      <wsdl:input message="tns:monitorPRGPresenceMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:monitorPRGPresenceResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopPRGPresenceMonitor">
+      <wsdl:input message="tns:stopPRGPresenceMonitorMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:stopPRGPresenceMonitorResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopFeatureMonitor">
+      <wsdl:input message="tns:stopFeatureMonitorMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:stopFeatureMonitorResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopMonitor">
+      <wsdl:input message="tns:stopMonitorMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:stopMonitorResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeCall">
+      <wsdl:input message="tns:makeCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:makeCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultationCall">
+      <wsdl:input message="tns:consultationCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:consultationCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearCall">
+      <wsdl:input message="tns:clearCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:clearCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelConsCall">
+      <wsdl:input message="tns:cancelConsCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:cancelConsCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="conferenceCall">
+      <wsdl:input message="tns:conferenceCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:conferenceCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="splitConferenceCall">
+      <wsdl:input message="tns:splitConferenceCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:splitConferenceCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newCall">
+      <wsdl:input message="tns:newCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:newCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="answerCall">
+      <wsdl:input message="tns:answerCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:answerCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="holdCall">
+      <wsdl:input message="tns:holdCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:holdCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCall">
+      <wsdl:input message="tns:retrieveCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:retrieveCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferCall">
+      <wsdl:input message="tns:transferCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:transferCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="camponCall">
+      <wsdl:input message="tns:camponCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:camponCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alternateCall">
+      <wsdl:input message="tns:alternateCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:alternateCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAccountCode">
+      <wsdl:input message="tns:setAccountCodeMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setAccountCodeResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPRGPresence">
+      <wsdl:input message="tns:setPRGPresenceMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setPRGPresenceResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDeviceDND">
+      <wsdl:input message="tns:setDeviceDNDMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setDeviceDNDResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginHotDeskUser">
+      <wsdl:input message="tns:loginHotDeskUserMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginHotDeskUserResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginExtHotDeskUser">
+      <wsdl:input message="tns:loginExtHotDeskUserMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginExtHotDeskUserResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logoutHotDeskUser">
+      <wsdl:input message="tns:logoutHotDeskUserMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:logoutHotDeskUserResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logoutExtHotDeskUser">
+      <wsdl:input message="tns:logoutExtHotDeskUserMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:logoutExtHotDeskUserResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotDeskUserLoginDevice">
+      <wsdl:input message="tns:getHotDeskUserLoginDeviceMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getHotDeskUserLoginDeviceResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotDeskUserDn">
+      <wsdl:input message="tns:getHotDeskUserDnMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getHotDeskUserDnResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyHotDeskUserPin">
+      <wsdl:input message="tns:verifyHotDeskUserPinMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:verifyHotDeskUserPinResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="outPulseDigits">
+      <wsdl:input message="tns:outPulseDigitsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:outPulseDigitsResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pickupCall">
+      <wsdl:input message="tns:pickupCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:pickupCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="redirectCall">
+      <wsdl:input message="tns:redirectCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:redirectCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceFeatures">
+      <wsdl:input message="tns:getDeviceFeaturesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeviceFeaturesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCallMeBackMsgForCall">
+      <wsdl:input message="tns:sendCallMeBackMsgForCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:sendCallMeBackMsgForCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCallMeBackMsgNoCall">
+      <wsdl:input message="tns:sendCallMeBackMsgNoCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:sendCallMeBackMsgNoCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCallMeBack">
+      <wsdl:input message="tns:setCallMeBackMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setCallMeBackResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearCallMeBackMsg">
+      <wsdl:input message="tns:clearCallMeBackMsgMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:clearCallMeBackMsgResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tradeCall">
+      <wsdl:input message="tns:tradeCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:tradeCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFNAExternal">
+      <wsdl:input message="tns:setCFNAExternalMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setCFNAExternalResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFNAInternal">
+      <wsdl:input message="tns:setCFNAInternalMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setCFNAInternalResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFBusyExternal">
+      <wsdl:input message="tns:setCFBusyExternalMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setCFBusyExternalResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFBusyInternal">
+      <wsdl:input message="tns:setCFBusyInternalMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setCFBusyInternalResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFAlways">
+      <wsdl:input message="tns:setCFAlwaysMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:setCFAlwaysResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEvent">
+      <wsdl:input message="tns:getEventMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getEventResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetCallStatus">
+      <wsdl:input message="tns:advGetCallStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetCallStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetTdmTrunkStatus">
+      <wsdl:input message="tns:advGetTdmTrunkStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetTdmTrunkStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSipPeerStatus">
+      <wsdl:input message="tns:advGetSipPeerStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetSipPeerStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentStatus">
+      <wsdl:input message="tns:advGetACDAgentStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDAgentStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentStatusEx">
+      <wsdl:input message="tns:advGetACDAgentStatusExMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetACDAgentStatusExResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorAllBridges">
+      <wsdl:input message="tns:advMonitorAllBridgesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advMonitorAllBridgesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorAllBridges">
+      <wsdl:input message="tns:advStopMonitorAllBridgesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advStopMonitorAllBridgesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCoachCall">
+      <wsdl:input message="tns:advCoachCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advCoachCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advClearCoachCall">
+      <wsdl:input message="tns:advClearCoachCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advClearCoachCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSystemConferences">
+      <wsdl:input message="tns:advGetSystemConferencesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advGetSystemConferencesResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advACDSilentMonitorEx">
+      <wsdl:input message="tns:advACDSilentMonitorExMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:advACDSilentMonitorExResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResilientStatus">
+      <wsdl:input message="tns:getResilientStatusMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getResilientStatusResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceConfigurationEx">
+      <wsdl:input message="tns:getDeviceConfigurationExMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeviceConfigurationExResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceMembers">
+      <wsdl:input message="tns:getDeviceMembersMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeviceMembersResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="remoteRetrieveCall">
+      <wsdl:input message="tns:remoteRetrieveCallMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:remoteRetrieveCallResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelGetEvent">
+      <wsdl:input message="tns:cancelGetEventMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:cancelGetEventResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNumberedEvent">
+      <wsdl:input message="tns:getNumberedEventMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getNumberedEventResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerRestSession">
+      <wsdl:input message="tns:registerRestSessionMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:registerRestSessionResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRestEvent">
+      <wsdl:input message="tns:getRestEventMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getRestEventResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIcpConfig">
+      <wsdl:input message="tns:getIcpConfigMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getIcpConfigResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDialableNumber">
+      <wsdl:input message="tns:getDialableNumberMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getDialableNumberResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingPhoneNumber">
+      <wsdl:input message="tns:getIncomingPhoneNumberMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getIncomingPhoneNumberResponseMessage">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StandardCCServiceBinding" type="tns:StandardCCServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="advGetTdmTrunkId">
+      <soap:operation soapAction="urn:advGetTdmTrunkId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSipPeerId">
+      <soap:operation soapAction="urn:advGetSipPeerId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSipPeerDescription">
+      <soap:operation soapAction="urn:advGetSipPeerDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2PathId">
+      <soap:operation soapAction="urn:advGetACD2PathId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2PathDescription">
+      <soap:operation soapAction="urn:advGetACD2PathDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2GroupId">
+      <soap:operation soapAction="urn:advGetACD2GroupId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACD2GroupDescription">
+      <soap:operation soapAction="urn:advGetACD2GroupDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentId">
+      <soap:operation soapAction="urn:advGetACDAgentId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentDescription">
+      <soap:operation soapAction="urn:advGetACDAgentDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDXGroupId">
+      <soap:operation soapAction="urn:advGetACDXGroupId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDXGroupDescription">
+      <soap:operation soapAction="urn:advGetACDXGroupDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetRingGroupId">
+      <soap:operation soapAction="urn:advGetRingGroupId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetRingGroupDescription">
+      <soap:operation soapAction="urn:advGetRingGroupDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetHuntGroupId">
+      <soap:operation soapAction="urn:advGetHuntGroupId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetHuntGroupDescription">
+      <soap:operation soapAction="urn:advGetHuntGroupDescription"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorAllTrunkFeatures">
+      <soap:operation soapAction="urn:advMonitorAllTrunkFeatures"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorAllTrunkFeatures">
+      <soap:operation soapAction="urn:advStopMonitorAllTrunkFeatures"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorACD2AgentFeatures">
+      <soap:operation soapAction="urn:advMonitorACD2AgentFeatures"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorACD2AgentFeatures">
+      <soap:operation soapAction="urn:advStopMonitorACD2AgentFeatures"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorACDExpress">
+      <soap:operation soapAction="urn:advMonitorACDExpress"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorACDExpressObjects">
+      <soap:operation soapAction="urn:advStopMonitorACDExpressObjects"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorConferences">
+      <soap:operation soapAction="urn:advMonitorConferences"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorConferences">
+      <soap:operation soapAction="urn:advStopMonitorConferences"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACDAgentPresence">
+      <soap:operation soapAction="urn:advSetACDAgentPresence"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetGroupMemberPresence">
+      <soap:operation soapAction="urn:advSetGroupMemberPresence"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advAssignCallerId">
+      <soap:operation soapAction="urn:advAssignCallerId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetMsgWaitingInd">
+      <soap:operation soapAction="urn:advSetMsgWaitingInd"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetTrunkMakeBusy">
+      <soap:operation soapAction="urn:advSetTrunkMakeBusy"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCancelTrunkMakeBusy">
+      <soap:operation soapAction="urn:advCancelTrunkMakeBusy"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advIntrudeCall">
+      <soap:operation soapAction="urn:advIntrudeCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advACDSilentMonitor">
+      <soap:operation soapAction="urn:advACDSilentMonitor"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advACDRequestHelp">
+      <soap:operation soapAction="urn:advACDRequestHelp"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDGroupStatus">
+      <soap:operation soapAction="urn:advGetACDGroupStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advTapCall">
+      <soap:operation soapAction="urn:advTapCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACDAgentMakeBusyWithCode">
+      <soap:operation soapAction="urn:advSetACDAgentMakeBusyWithCode"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACDAgentMakeBusy">
+      <soap:operation soapAction="urn:advSetACDAgentMakeBusy"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetAutoAnswer">
+      <soap:operation soapAction="urn:advSetAutoAnswer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advSetACD2AgentPresenceAllGroups">
+      <soap:operation soapAction="urn:advSetACD2AgentPresenceAllGroups"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLoginACDAgent">
+      <soap:operation soapAction="urn:advLoginACDAgent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLoginExternalACDAgent">
+      <soap:operation soapAction="urn:advLoginExternalACDAgent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLogoutExternalACDAgent">
+      <soap:operation soapAction="urn:advLogoutExternalACDAgent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advLogoutACDAgent">
+      <soap:operation soapAction="urn:advLogoutACDAgent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCancelACDWorkTimer">
+      <soap:operation soapAction="urn:advCancelACDWorkTimer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCancelACDResezeWorkTimer">
+      <soap:operation soapAction="urn:advCancelACDResezeWorkTimer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetEvent">
+      <soap:operation soapAction="urn:advGetEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerEventHandler">
+      <soap:operation soapAction="urn:registerEventHandler"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCallStatus">
+      <soap:operation soapAction="urn:getCallStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceConfiguration">
+      <soap:operation soapAction="urn:getDeviceConfiguration"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPhoneNumberId">
+      <soap:operation soapAction="urn:getPhoneNumberId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLineAppearanceId">
+      <soap:operation soapAction="urn:getLineAppearanceId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIcpId">
+      <soap:operation soapAction="urn:getIcpId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitorObject">
+      <soap:operation soapAction="urn:monitorObject"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitorFeatures">
+      <soap:operation soapAction="urn:monitorFeatures"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="monitorPRGPresence">
+      <soap:operation soapAction="urn:monitorPRGPresence"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopPRGPresenceMonitor">
+      <soap:operation soapAction="urn:stopPRGPresenceMonitor"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopFeatureMonitor">
+      <soap:operation soapAction="urn:stopFeatureMonitor"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopMonitor">
+      <soap:operation soapAction="urn:stopMonitor"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeCall">
+      <soap:operation soapAction="urn:makeCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultationCall">
+      <soap:operation soapAction="urn:consultationCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearCall">
+      <soap:operation soapAction="urn:clearCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelConsCall">
+      <soap:operation soapAction="urn:cancelConsCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="conferenceCall">
+      <soap:operation soapAction="urn:conferenceCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="splitConferenceCall">
+      <soap:operation soapAction="urn:splitConferenceCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newCall">
+      <soap:operation soapAction="urn:newCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="answerCall">
+      <soap:operation soapAction="urn:answerCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="holdCall">
+      <soap:operation soapAction="urn:holdCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCall">
+      <soap:operation soapAction="urn:retrieveCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferCall">
+      <soap:operation soapAction="urn:transferCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="camponCall">
+      <soap:operation soapAction="urn:camponCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alternateCall">
+      <soap:operation soapAction="urn:alternateCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAccountCode">
+      <soap:operation soapAction="urn:setAccountCode"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPRGPresence">
+      <soap:operation soapAction="urn:setPRGPresence"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDeviceDND">
+      <soap:operation soapAction="urn:setDeviceDND"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginHotDeskUser">
+      <soap:operation soapAction="urn:loginHotDeskUser"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginExtHotDeskUser">
+      <soap:operation soapAction="urn:loginExtHotDeskUser"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logoutHotDeskUser">
+      <soap:operation soapAction="urn:logoutHotDeskUser"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logoutExtHotDeskUser">
+      <soap:operation soapAction="urn:logoutExtHotDeskUser"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotDeskUserLoginDevice">
+      <soap:operation soapAction="urn:getHotDeskUserLoginDevice"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotDeskUserDn">
+      <soap:operation soapAction="urn:getHotDeskUserDn"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyHotDeskUserPin">
+      <soap:operation soapAction="urn:verifyHotDeskUserPin"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="outPulseDigits">
+      <soap:operation soapAction="urn:outPulseDigits"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pickupCall">
+      <soap:operation soapAction="urn:pickupCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="redirectCall">
+      <soap:operation soapAction="urn:redirectCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceFeatures">
+      <soap:operation soapAction="urn:getDeviceFeatures"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCallMeBackMsgForCall">
+      <soap:operation soapAction="urn:sendCallMeBackMsgForCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendCallMeBackMsgNoCall">
+      <soap:operation soapAction="urn:sendCallMeBackMsgNoCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCallMeBack">
+      <soap:operation soapAction="urn:setCallMeBack"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearCallMeBackMsg">
+      <soap:operation soapAction="urn:clearCallMeBackMsg"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tradeCall">
+      <soap:operation soapAction="urn:tradeCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFNAExternal">
+      <soap:operation soapAction="urn:setCFNAExternal"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFNAInternal">
+      <soap:operation soapAction="urn:setCFNAInternal"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFBusyExternal">
+      <soap:operation soapAction="urn:setCFBusyExternal"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFBusyInternal">
+      <soap:operation soapAction="urn:setCFBusyInternal"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCFAlways">
+      <soap:operation soapAction="urn:setCFAlways"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEvent">
+      <soap:operation soapAction="urn:getEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetCallStatus">
+      <soap:operation soapAction="urn:advGetCallStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetTdmTrunkStatus">
+      <soap:operation soapAction="urn:advGetTdmTrunkStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSipPeerStatus">
+      <soap:operation soapAction="urn:advGetSipPeerStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentStatus">
+      <soap:operation soapAction="urn:advGetACDAgentStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetACDAgentStatusEx">
+      <soap:operation soapAction="urn:advGetACDAgentStatusEx"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advMonitorAllBridges">
+      <soap:operation soapAction="urn:advMonitorAllBridges"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advStopMonitorAllBridges">
+      <soap:operation soapAction="urn:advStopMonitorAllBridges"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advCoachCall">
+      <soap:operation soapAction="urn:advCoachCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advClearCoachCall">
+      <soap:operation soapAction="urn:advClearCoachCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advGetSystemConferences">
+      <soap:operation soapAction="urn:advGetSystemConferences"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="advACDSilentMonitorEx">
+      <soap:operation soapAction="urn:advACDSilentMonitorEx"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResilientStatus">
+      <soap:operation soapAction="urn:getResilientStatus"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceConfigurationEx">
+      <soap:operation soapAction="urn:getDeviceConfigurationEx"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceMembers">
+      <soap:operation soapAction="urn:getDeviceMembers"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="remoteRetrieveCall">
+      <soap:operation soapAction="urn:remoteRetrieveCall"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelGetEvent">
+      <soap:operation soapAction="urn:cancelGetEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNumberedEvent">
+      <soap:operation soapAction="urn:getNumberedEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerRestSession">
+      <soap:operation soapAction="urn:registerRestSession"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRestEvent">
+      <soap:operation soapAction="urn:getRestEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIcpConfig">
+      <soap:operation soapAction="urn:getIcpConfig"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDialableNumber">
+      <soap:operation soapAction="urn:getDialableNumber"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIncomingPhoneNumber">
+      <soap:operation soapAction="urn:getIncomingPhoneNumber"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StandardCCService">
+    <wsdl:port name="StandardCCServicePort" binding="tns:StandardCCServiceBinding">
+      <soap:address location="http://localhost:8080/axis2/services/StandardCCService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
