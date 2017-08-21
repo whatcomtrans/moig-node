@@ -2,16 +2,9 @@ const oigServer = require("../index.js")
 var options = require("./config.json")
 var oigSessionClient = oigServer.sessionClient(options)
 
-oigSessionClient.serviceVersions().then(function(success) {
-    console.log("Success")
-    console.log(oigSessionClient.serviceVersionsResults)
-}, function(success){
-    console.log("Failed")
-    console.log(oigSessionClient.lastError)
-}).then(function(success){
-    setTimeout(function() {
-        oigSessionClient.logout()
-    }, 2000);
+oigSessionClient.loginEx().then(function(success) {
+    //oigCallControlClient.geticpid
+    console.log(success)
 })
 
 
