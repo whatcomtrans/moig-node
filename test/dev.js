@@ -2,11 +2,63 @@ const oigServer = require("../index.js")
 var options = require("./config.json")
 var oigSessionClient = oigServer.sessionClient(options)
 
-oigSessionClient.loginEx().then(function(success) {
-    //oigCallControlClient.geticpid
-    console.log(success)
+
+while(true) {
+    var promise = new Promise(function(resolve){
+        console.log("1")
+        setTimeout(function() {
+            console.log("2")
+        }, 1000)
+    }).then(function() {
+        console.log("3")
+    })
+}
+
+
+
+/*
+oigSessionClient.on("TEST", function(poj) {
+    console.log("TEST: " + poj.success)
+})
+*/
+
+/*
+var promise = new Promise(function(resolve){
+    oigSessionClient.on("TEST", function(poj) { // Event name
+        if (poj.success) {  // WHERE clause
+            resolve(true)
+        }
+    })
 })
 
+promise.then(function(success) {
+    console.log("TEST: " + success)
+})
+
+oigSessionClient.emit("TEST", {"success": false})
+
+setTimeout(function() {
+    console.log("About to emit")
+    oigSessionClient.emit("TEST", {"success": true})
+}, 1000)
+
+*/
+
+
+    /**
+     * The idea here is to start a process that calls getEvent, emits and then requests again.
+     * Lots of events will be coming in, will probably be best to use the event emitter model here.
+     * However, I don't want request for next event to delay processing.
+     * Maybe a local queue of some sort.
+     */
+
+/*
+oigSessionClient.loginEx().then(function(success) {
+    console.log("Logged in: " + success)
+}).then(function(){
+    // Setup getEvent synchronouse handler
+})
+*/
 
 /*
 oigSessionClient.loginEx().then(function(success) {
