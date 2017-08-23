@@ -1,19 +1,15 @@
 const oigServer = require("../index.js")
 var options = require("./config.json")
-var oigSessionClient = oigServer.sessionClient(options)
+var oigSessionClient = oigServer.sessionClient(options.session)
+var oigCallControlClient = oigServer.callControlClient(options.callControl)
 
 
-while(true) {
-    var promise = new Promise(function(resolve){
-        console.log("1")
-        setTimeout(function() {
-            console.log("2")
-        }, 1000)
-    }).then(function() {
-        console.log("3")
-    })
-}
-
+oigSessionClient.loginEx().then(function(success){
+    return oigCallControlClient.connect({"sessionId": oigSessionClient.sessionId})
+}).then(function(sucess){
+    console.log(sucess)
+    return sucess
+})
 
 
 /*
