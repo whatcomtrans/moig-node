@@ -9,6 +9,8 @@ oigSessionClient.loginEx().then(function(success){
 }).then(function(sucess){
     console.log(sucess)
     return sucess
+}).then(function(){
+    return oigCallControlClient.getEvent()
 })
 
 
