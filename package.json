@@ -22,6 +22,8 @@
     "should": "^11.2.1"
   },
   "dependencies": {
+    "event-to-promise": "^0.8.0",
+    "mustache": "^2.3.0",
     "promise": "^8.0.1",
     "soap": "^0.20.0"
   }

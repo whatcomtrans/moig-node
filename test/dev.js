@@ -3,15 +3,46 @@ var options = require("./config.json")
 var oigSessionClient = oigServer.sessionClient(options.session)
 var oigCallControlClient = oigServer.callControlClient(options.callControl)
 
-
-oigSessionClient.loginEx().then(function(success){
-    return oigCallControlClient.connect({"sessionId": oigSessionClient.sessionId})
-}).then(function(sucess){
-    console.log(sucess)
-    return sucess
-}).then(function(){
-    return oigCallControlClient.getEvent()
+/*
+oigCallControlClient.on("getEventTimeout", function(eventData) {
+    console.log(eventData)
 })
+*/
+oigCallControlClient.on("standardEvent", function(eventData) {
+    console.log(eventData)
+})
+
+var phoneObjectId = null
+
+oigSessionClient.connect()
+.then(function(success){
+    console.log("oigSessionClient.connect: " + success)
+    return oigSessionClient.loginEx()
+}).then(function(success){
+    console.log("oigSessionClient.loginEx: " + success)
+    console.log("sessionId: " + oigSessionClient.sessionId)
+    return oigCallControlClient.connect({"sessionId": oigSessionClient.sessionId})
+}).then(function(success){
+    console.log("oigCallControlClient.connect: " + success)
+    return
+}).then(function() {
+    // Now lets try some functions
+    return oigCallControlClient.getIcpId()
+}).then(function(ret){
+    return oigCallControlClient.getPhoneNumberId({"primeDn": 9341})
+}).then(function(ret) {
+    phoneObjectId = ret.result.objectId
+    return oigCallControlClient.monitorObject({"objectId": ret.result.objectId})
+}).then(function(ret) {
+    // Make a phone call?
+}).then(function(ret){
+    // stopMonitor
+}).then(function(ret) {
+    return oigSessionClient.logout()
+}).then(function(ret) {
+    console.log(JSON.stringify(result))
+})
+
 
 
 /*
