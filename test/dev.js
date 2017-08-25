@@ -35,8 +35,14 @@ function _startup() {
 
 function _shutdown() {
     console.log("Beginning shutdown")
+    
+    // Remove listener
+    oigCallControlClient.removeListener("standardEvent", function(eventData) {
+            console.log(eventData)  // TODO: debug only
+    })
+
     // Get one last event and then stop
-    return oigCallControlClient.getEvent({"getEventContinuously": false})
+    return oigCallControlClient.getEvent({"timeout": 1, "getEventContinuously": false})
     // Logout of session
     .then(function(success) {
         console.log("oigCallControlClient.getEventContinuously to false: " + success)
@@ -49,24 +55,101 @@ function _shutdown() {
     })
 }
 
-var phoneObjectId = null
-_startup()
-.then(function(success){
-    return oigCallControlClient.getPhoneNumberId({"primeDn": 9341})
-})
-.then(function(ret) {
-    // Monitor a phone
-    phoneObjectId = ret.result.objectId
-    return oigCallControlClient.monitorObject({"objectId": ret.result.objectId})
-})
-.then(function(ret) {
-    // Make a phone call    
-    return oigCallControlClient.makeCall({"objectId": phoneObjectId, "number": "813602240377"})
-})
-.then(function(ret){
-    // stopMonitor
-    return oigCallControlClient.stopMonitor({"objectId": phoneObjectId})
-})
-.then(function(success) {
-    return _shutdown()
-})
+function makePhoneCall(phoneDn, phoneNumber) {
+    var phoneObjectId = null
+    _startup()
+    .then(function(success){
+        return oigCallControlClient.getPhoneNumberId({"primeDn": phoneDn})
+    })
+    .then(function(ret) {
+        // Monitor a phone
+        phoneObjectId = ret.result.objectId
+        return oigCallControlClient.monitorObject({"objectId": ret.result.objectId})
+    }, function(ret) {
+        // Handle error setting monitor
+        console.log ("Unable to monitor object: " + ret.error)
+    })
+    .then(function(ret) {
+        // Make a phone call    
+        return oigCallControlClient.makeCall({"objectId": phoneObjectId, "number": phoneNumber})
+    })
+    .then(function(ret){
+        return oigCallControlClient.stopMonitor({"objectId": phoneObjectId})
+    })
+    .then(function(ret){
+        return _shutdown()
+    })
+}
+
+function joinACDGroup(agentDn, groupDn) {
+    setACDAgentPresence(agentDn, groupDn, true)
+}
+
+function leaveACDGroup(agentDn, groupDn) {
+    setACDAgentPresence(agentDn, groupDn, false)
+}
+
+function setACDAgentPresence(agentDn, groupDn, present) {
+    var agentObjectId = null
+    oigCallControlClient.advGetACDAgentId({"agentDn": agentDn})
+    .then(function(ret) {
+        // Monitor a phone
+        agentObjectId = ret.result.objectId
+        return oigCallControlClient.monitorObject({"objectId": ret.result.objectId})
+    }, function(ret) {
+        // Handle error setting monitor
+        console.log ("Unable to monitor object: " + ret.error)
+    })
+    .then(function(ret) {
+        // Make a phone call    
+        return oigCallControlClient.advSetACDAgentPresence({"objectId": agentObjectId, "groupDn": groupDn, "presenceValue": present})
+    })
+    .then(function(ret){
+        return oigCallControlClient.stopMonitor({"objectId": agentObjectId})
+    })
+}
+
+function pluckCall(agentDn, groupDn) {
+    var agentObjectId = null
+    oigCallControlClient.advGetACDAgentId({"agentDn": agentDn})
+    .then(function(ret) {
+        // Monitor a phone
+        agentObjectId = ret.result.objectId
+        return oigCallControlClient.monitorObject({"objectId": ret.result.objectId})
+    })
+    .then(function(ret) {
+        // Login if not already logged in
+        //return oigCallControlClient.loginExtHotDeskUser({"objectId": agentObjectId, "Pin": "1111"})
+        return ret
+    })
+    .then(function(ret) {
+        // Join group
+        return oigCallControlClient.advSetACDAgentPresence({"objectId": agentObjectId, "groupDn": groupDn, "presenceValue": true})
+    })
+    .then(function(ret) {
+        // Wait until call picked up or time?
+        // return ret
+        return new Promise((resolve) => setTimeout(resolve,5000));
+    })
+    .then(function(ret) {
+        return oigCallControlClient.advSetACDAgentPresence({"objectId": agentObjectId, "groupDn": groupDn, "presenceValue": false})
+        // return true
+    })
+    .then(function(ret){
+        return oigCallControlClient.stopMonitor({"objectId": agentObjectId})
+    })
+}
+
+function test() {
+    return _startup()
+    .then(function(ret) {
+        // Place test function here
+        return pluckCall("2514", "6101")
+    })
+    .then(function(ret) {
+        console.log(ret)
+        return ret
+        //return _shutdown()
+    })
+}
+test()
