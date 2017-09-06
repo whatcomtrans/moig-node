@@ -17,37 +17,35 @@ function _startup() {
     })  
     .then(function(success){
         console.log("oigCallControlClient.connect: " + success)
-        oigCallControlClient.on("standardEvent", function(eventData) {
+        
+        oigCallControlClient.on("getEvent", function(eventData) {
             console.log(eventData)  // TODO: debug only
         })
+        
         return oigCallControlClient.getEvent({"timeout": 1})  // A really short timeout allows this process to continue but still sets up the ongoing getEvent cycle.  TODO: this could probably be done better
     })
     .then(function(ret) {
-        console.log("oigCallControlClient.getEvent: " + ret.success)
+        //console.log("oigCallControlClient.getEvent: " + ret.success)
         return oigCallControlClient.getIcpId()
     })
     .then(function(ret) {
         console.log("oigCallControlClient.getIcpId: " + ret.success)
         console.log("startup: " + ret.success)
         return ret.success
+    }, function(err) {
+        console.log("startup error")
+        console.log (err)
+        return err
     })
 }
 
 function _shutdown() {
     console.log("Beginning shutdown")
     
-    // Remove listener
-    oigCallControlClient.removeListener("standardEvent", function(eventData) {
-            console.log(eventData)  // TODO: debug only
-    })
-
     // Get one last event and then stop
-    return oigCallControlClient.getEvent({"timeout": 1, "getEventContinuously": false})
+    oigCallControlClient.getEventContinuously = false
     // Logout of session
-    .then(function(success) {
-        console.log("oigCallControlClient.getEventContinuously to false: " + success)
-        return oigSessionClient.logout()
-    })
+    return oigSessionClient.logout()
     // Shutdown complete
     .then(function(success) {
         console.log("shutdown: " + success)
@@ -140,16 +138,145 @@ function pluckCall(agentDn, groupDn) {
     })
 }
 
-function test() {
+function test2() {
+    var objectId = null
+    // startup
     return _startup()
     .then(function(ret) {
-        // Place test function here
-        return pluckCall("2514", "6101")
+        // Get path
+        return oigCallControlClient.advGetACD2PathId({"pathDn": "6109"})
     })
     .then(function(ret) {
+        objectId = ret.result.objectId
         console.log(ret)
         return ret
-        //return _shutdown()
+    })
+    .then(function(ret) {
+        return oigCallControlClient.monitorObject({"objectId": objectId})
+    })
+    .then(function() {
+        return oigCallControlClient.advGetEvent()
+    })
+    .then(function(ret) {
+        //console.log(ret)
+        return ret
+    })
+    .then(function(ret) {
+        //return oigCallControlClient.redirectCall({"objectId": ret.result.eventData.callEvent.objectId, "redirectDn": "9710", "localCallId": ret.result.eventData.callEvent.localCallId})
+        return ret
+    })  // Done, now clean up, same for either success or error
+    .then(function(ret){
+        console.log("----------------------success: " + JSON.stringify(ret))
+        return oigCallControlClient.stopMonitor({"objectId": objectId}).then(function() {return _shutdown})
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        return oigCallControlClient.stopMonitor({"objectId": objectId}).then(function() {return _shutdown})
     })
 }
-test()
+
+function test() {
+    var objectId = null
+    // startup
+    return _startup()
+    .then(function() {
+        return oigCallControlClient.advGetACD2PathId({"pathDn": "6109"})
+    })
+    .then(function() {
+        return _shutdown()
+    })
+}
+
+function test3() {
+
+    oigCallControlClient.on("advGetEvent", function(eventData) {
+        console.log("----EVENT START-----")
+        console.log(eventData)  // TODO: debug only
+        console.log("----EVENT END-------")
+        var callEvent = eventData.result.eventData.callEvent
+        if (callEvent.type == "ACD2_PATH" && callEvent.cause == "ACD_CALL_QUEUED") {
+            return oigCallControlClient.redirectCall({"objectId": callEvent.objectId, "redirectDn": "9710", "localCallId": callEvent.localCallId})
+            .then(function(ret) {
+                console.log(ret)
+            })
+        }
+    })
+    
+
+    // startup
+    return _startup()
+    .then(function(ret) {
+        // Get path
+        return oigCallControlClient.advGetACD2PathId({"pathDn": "6109"})
+    })
+    .then(function(ret) {
+        oigCallControlClient.objectId = ret.result.objectId
+        console.log(ret)
+        return ret
+    })
+    .then(function(ret) {
+        return oigCallControlClient.monitorObject()
+    })
+    .then(function() {
+        return oigCallControlClient.advGetEvent()
+    })
+    .then(function(ret){
+        console.log("Awaiting events...")
+        setTimeout(function() {
+            console.log("SHUTDOWN TIMER EXECUTING...")
+            _shutdownPlusMonitor()
+        }, 1000 * 60 * 1)
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        return _shutdownPlusMonitor()
+    })
+}
+
+function _shutdownPlusMonitor () {
+    return oigCallControlClient.stopMonitor()
+    .then(function(ret) {
+        _shutdown
+    })
+}
+
+
+function test4() {
+    // startup
+    return _startup()
+    .then(function(ret) {
+        // Get path
+        return oigCallControlClient.getPhoneNumberId({"primeDn": "9341"})
+    })
+    .catch(function(err) {
+        console.log("error:------------------" + err)
+    })
+}
+
+function test5() {
+    return _startup()
+    .then(function(ret) {
+        // Get path
+        return oigCallControlClient.getPhoneNumberId({"primeDn": "9341"})
+    })
+    .then(function(ret) {
+        oigCallControlClient.objectId = ret.result.objectId
+        return ret
+    })
+    .then(function(ret) {
+        return oigCallControlClient.monitorObject()
+    })
+    .then(function() {
+        // return oigCallControlClient.advGetEvent()
+    })
+    .then(function(ret){
+        console.log("Awaiting events...")
+        setTimeout(function() {
+            console.log("SHUTDOWN TIMER EXECUTING...")
+            _shutdownPlusMonitor()
+        }, 1000 * 60 * 1)
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        return _shutdownPlusMonitor()
+    })
+}
+
+test3()
