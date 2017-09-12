@@ -2,6 +2,8 @@ const oigServer = require("../index.js")
 var options = require("./config.json")
 var oigSessionClient = oigServer.sessionClient(options.session)
 var oigCallControlClient = oigServer.callControlClient(options.callControl)
+const oigACDPath = oigServer.oigACDPath
+
 
 function _startup() {
     console.log("Beginning startup")
@@ -18,11 +20,12 @@ function _startup() {
     .then(function(success){
         console.log("oigCallControlClient.connect: " + success)
         
-        oigCallControlClient.on("getEvent", function(eventData) {
+        /*oigCallControlClient.on("getEvent", function(eventData) {
             console.log(eventData)  // TODO: debug only
-        })
+        })*/
         
-        return oigCallControlClient.getEvent({"timeout": 1})  // A really short timeout allows this process to continue but still sets up the ongoing getEvent cycle.  TODO: this could probably be done better
+        //return oigCallControlClient.getEvent({"timeout": 1})  // A really short timeout allows this process to continue but still sets up the ongoing getEvent cycle.  TODO: this could probably be done better
+        return success
     })
     .then(function(ret) {
         //console.log("oigCallControlClient.getEvent: " + ret.success)
@@ -174,18 +177,6 @@ function test2() {
     })
 }
 
-function test() {
-    var objectId = null
-    // startup
-    return _startup()
-    .then(function() {
-        return oigCallControlClient.advGetACD2PathId({"pathDn": "6109"})
-    })
-    .then(function() {
-        return _shutdown()
-    })
-}
-
 function test3() {
 
     oigCallControlClient.on("advGetEvent", function(eventData) {
@@ -234,7 +225,11 @@ function test3() {
 function _shutdownPlusMonitor () {
     return oigCallControlClient.stopMonitor()
     .then(function(ret) {
-        _shutdown
+        return _shutdown
+    })
+    .then(function(ret) {
+        process.exit()
+        return true
     })
 }
 
@@ -279,4 +274,127 @@ function test5() {
     })
 }
 
-test3()
+function test6() {
+    var objectId = null
+    // startup
+    return _startup()
+    .then(function(ret) {
+        return oigCallControlClient.advGetACD2PathId({"pathDn": "6109"})
+    })
+    .then(function(ret) {
+        return oigCallControlClient.advGetACD2PathDescription({"objectId": ret.result.objectId})
+    })
+    .then(function(ret) {
+        console.log("PATH DESCRIPTION")
+        console.log(ret)
+    })
+    .then(function() {
+        return _shutdown()
+    })
+    .catch(function(err) {
+        console.log("ERROR: " + err)
+    })
+}
+
+
+/*
+oigCallControlClient.on("advGetEvent", function(eventData) {
+    console.log("----EVENT START-----")
+    console.log(eventData)  // TODO: debug only
+    console.log("----EVENT END-------")
+    var callEvent = eventData.result.eventData.callEvent
+    if (callEvent.type == "ACD2_PATH" && callEvent.cause == "ACD_CALL_QUEUED") {
+        return oigCallControlClient.redirectCall({"objectId": callEvent.objectId, "redirectDn": "9710", "localCallId": callEvent.localCallId})
+        .then(function(ret) {
+            console.log(ret)
+        })
+    }
+})*/
+
+function captureRawEvents() {
+    oigCallControlClient.on("rawResult", function(data) {
+        // save the data to a file?
+        // console.log(JSON.stringify(data))
+    })
+
+    oigCallControlClient.on("CALL_EVENT", function(data) {
+        // save the data to a file?
+        console.log(JSON.stringify(data))
+    })
+
+    return _startup()
+    .then(function(ret) {
+        return oigCallControlClient.advGetACD2PathId({"pathDn": "6109"})
+    })
+    .then(function(ret) {
+        oigCallControlClient.objectId = ret.result.objectId
+        return ret
+    })
+    .then(function(ret) {
+        return oigCallControlClient.monitorObject({"objectId": ret.result.objectId})
+    })
+    /*
+    .then(function(ret) {
+        return oigCallControlClient.getEvent({"timeout": 1})
+    })
+    */
+    .then(function (ret) {
+        return oigCallControlClient.advGetEvent({"timeout": 1})
+    })
+    .then(function(ret){
+        console.log("Awaiting events...")
+        setTimeout(function() {
+            console.log("SHUTDOWN TIMER EXECUTING...")
+            _shutdownPlusMonitor()
+        }, 1000 * 60 * 1)
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        return _shutdownPlusMonitor()
+    })
+}
+
+// captureRawEvents()
+
+function monitorPath() {
+    var path = null
+    return _startup()
+    .then(function(ret) {
+        return oigCallControlClient.getEvent({"timeout": 1})
+    })
+    .then(function (ret) {
+        return oigCallControlClient.advGetEvent({"timeout": 1})
+    })
+    .then(function(ret) {
+        path = new oigACDPath({"pathDn": "6109", "callControlClient": oigCallControlClient})
+        return path.connect()
+    })
+    .then(function(ret) {
+        console.log(path.sharablePath)
+    })
+    .then(function(ret){
+        console.log("Awaiting events...")
+        path.on("changed", function(data){
+            console.log("----------------------------------------------------")
+            console.log("Something changed...")
+            console.log(data)
+            if (data.pendingCallsCount > 0) {
+                var localCallId = data.pendingCalls[0].localCallId
+                path.redirectCall({"localCallId": localCallId, "redirectDn": "9341"})
+            }
+        })
+        setTimeout(function() {
+            console.log(path.sharablePath)
+            console.log("SHUTDOWN TIMER EXECUTING...")
+            path.stopMonitor().then(function(ret) {
+                return _shutdown()
+            })
+        }, 1000 * 60 * 2)
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        path.stopMonitor().then(function (ret) {
+            return _shutdown()
+        })
+    })
+}
+
+monitorPath()
