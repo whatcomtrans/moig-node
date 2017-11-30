@@ -8,6 +8,12 @@
             "type": "node",
             "request": "launch",
             "name": "Test",
+            "program": "${workspaceRoot}/test/test.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Dev",
             "program": "${workspaceRoot}/test/dev.js"
         },
         {
