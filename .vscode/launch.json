@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Test",
-            "program": "${workspaceRoot}/test/test.js"
+            "program": "${workspaceRoot}/test/dev.js"
         },
         {
             "type": "node",

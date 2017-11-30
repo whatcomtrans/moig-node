@@ -397,4 +397,43 @@ function monitorPath() {
     })
 }
 
-monitorPath()
+function getPathCalls() {
+    oigCallControlClient.acd2GroupDn = "5999"
+    return _startup()
+    .then(function(ret) {
+        return oigCallControlClient.getEvent({"timeout": 1})
+    })
+    .then(function(ret) {
+        return oigCallControlClient.advGetEvent({"timeout": 1})
+    })
+    .then(function(ret) {
+        return oigCallControlClient.advGetACD2GroupId()
+    })
+    .then(function(ret) {
+        oigCallControlClient.objectId = ret.result.objectId
+        return oigCallControlClient.monitorObject()
+    })
+    .then(function(ret) {
+        return oigCallControlClient.advGetACDGroupStatus()
+    })
+    .then(function(ret) {
+        console.log(JSON.stringify(ret))
+    })
+    .then(function(ret) {
+        setTimeout(function() {
+            console.log("SHUTDOWN TIMER EXECUTING...")
+            return oigCallControlClient.stopMonitor()
+            .then(function(ret) {
+                return _shutdown()
+            })
+        }, 1000 * 60 * 1)
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        return oigCallControlClient.stopMonitor()
+        .then(function(ret) {
+            return _shutdown()
+        })
+    })
+}
+
+getPathCalls()
