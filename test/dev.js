@@ -20,9 +20,9 @@ function _startup() {
     .then(function(success){
         console.log("oigCallControlClient.connect: " + success)
         
-        /*oigCallControlClient.on("getEvent", function(eventData) {
+        oigCallControlClient.on("getEvent", function(eventData) {
             console.log(eventData)  // TODO: debug only
-        })*/
+        })
         
         //return oigCallControlClient.getEvent({"timeout": 1})  // A really short timeout allows this process to continue but still sets up the ongoing getEvent cycle.  TODO: this could probably be done better
         return success
@@ -436,4 +436,61 @@ function getPathCalls() {
     })
 }
 
-getPathCalls()
+//getPathCalls()
+//_startup()
+
+function dispatch() {
+    logger.log("API Startup - establishing sessionClient with OIG server")
+    return sessionClient.connect()
+    .then(function(success){
+        logger.log("API Startup - oigSessionClient.connect: " + success)
+        return sessionClient.loginEx()
+    })
+    .then(function(success){
+        logger.log("API Startup - oigSessionClient.loginEx: " + success)
+        logger.log("API Startup - sessionId: " + sessionClient.sessionId)
+        return callControlClient.connect({"sessionId": sessionClient.sessionId})
+    })  
+    .then(function(success){
+        logger.log("API Startup - oigCallControlClient.connect: " + success)
+        return callControlClient.getEvent({"timeout": 1})  // A really short timeout allows this process to continue but still sets up the ongoing getEvent cycle.
+    })
+    .then(function(ret) {
+        logger.log("API Startup - oigCallControlClient.getEvent: " + ret.success)
+        return callControlClient.advGetEvent({"timeout": 1})
+    })
+    .then(function(ret) {
+        logger.log("API Startup - oigCallControlClient.advGetEvent: " + ret.success)
+        return callControlClient.getIcpId()
+    })
+    .then(function(ret) {
+        logger.log("API Startup - oigCallControlClient.getIcpId: " + ret.success)
+        logger.log("API Startup - success: " + ret.success)
+        return ret.success
+    })
+    .then(function(ret) {
+        var p = new oigACDPath({"callControlClient": callControlClient, "pathDn": "6909"})
+        logger.log("DISPATCH Startup - added path 6909")
+        return p.connect()
+    })
+    .then(function(ret) {
+        setTimeout(function() {
+            console.log("SHUTDOWN TIMER EXECUTING...")
+            return oigCallControlClient.stopMonitor()
+            .then(function(ret) {
+                return _shutdown()
+            })
+        }, 1000 * 60 * 1)
+    }, function(err){
+        console.log("----------------------error: " + JSON.stringify(err))
+        return oigCallControlClient.stopMonitor()
+        .then(function(ret) {
+            return _shutdown()
+        })
+    })
+}
+var logger = console
+var sessionClient = oigSessionClient
+var callControlClient = oigCallControlClient
+
+dispatch()
